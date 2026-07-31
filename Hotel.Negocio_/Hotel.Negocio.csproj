@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DaL\Estadiadal.cs" />
     <Compile Include="DaL\HabitacionDal.cs" />
     <Compile Include="DaL\Huespeddal.cs" />
     <Compile Include="DaL\Reservadal.cs" />
     <Compile Include="DaL\usuariodalcs.cs" />
     <Compile Include="Modelo\Estadia.cs" />
+    <Compile Include="Modelo\Factura.cs" />
     <Compile Include="Modelo\HabitacionOcupadaException.cs" />
     <Compile Include="Modelo\Habitacion.cs" />
     <Compile Include="Modelo\Huesped.cs" />
