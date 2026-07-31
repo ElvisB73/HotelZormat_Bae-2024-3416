@@ -1,4 +1,5 @@
-﻿namespace Hotel.Negocio_.Modelo
+﻿// Cedula: 402444623662
+namespace Hotel.Negocio_.Modelo
 {
     /// <summary>
     /// Constantes con los valores EXACTOS que acepta la base de datos
@@ -44,5 +45,12 @@
     {
         public const string Cedula = "Cedula";
         public const string Pasaporte = "Pasaporte";
+    }
+
+    public static class TiposHabitacion
+    {
+        public const string Sencilla = "Sencilla";
+        public const string Doble = "Doble";
+        public const string Suite = "Suite";
     }
 }

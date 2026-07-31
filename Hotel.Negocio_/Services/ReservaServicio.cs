@@ -23,7 +23,7 @@ namespace HotelZormat.Negocio.Servicios
                 return false;
             }
 
-            if (tipo == "Sencilla" || tipo == "Doble" || tipo == "Suite")
+            if (tipo == TiposHabitacion.Sencilla || tipo == TiposHabitacion.Doble || tipo == TiposHabitacion.Suite)
             {
                 return true;
             }

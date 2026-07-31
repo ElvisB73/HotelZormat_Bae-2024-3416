@@ -1,78 +1,104 @@
-﻿using Hotel.Datos;
+﻿// Cedula: 402444623662
+using Hotel.Negocio_.DaL;
+using Hotel.Negocio_.Modelo;
+using HotelZormat.Negocio.Servicios;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelZormat
 {
-    public partial class Form1 : Form
+    public partial class FrmPRINCIPAL : Form
     {
-        public Form1()
+        private UsuarioService usuarioService = new UsuarioService();
+        private BitacoraDAL bitacoraDal = new BitacoraDAL();
+
+        public FrmPRINCIPAL()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        // Nombre exacto que usa el Designer: "FrmPRINCIPAL_Load"
+        private void FrmPRINCIPAL_Load(object sender, EventArgs e)
         {
-
+            lblmensaje.Text = "";
+            txtContrasena.PasswordChar = '*';
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        // El Designer conecta el evento Paint del panel a este método.
+        // Lo dejamos vacío, no necesitamos dibujar nada especial ahí.
+        //private void PnlLateral_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        //{
+        // }
 
+        // El Designer conecta el Click de este label a este método.
+        // Lo dejamos vacío, no hace falta que haga nada.
+        private void lblNombre_Click(object sender, EventArgs e)
+        {
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnIniciarsesion_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnIniciarsesion_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("hiciste click");
-            if (txtUsuario.Text == "Admin" && txtContraseña.Text == "1234")
-            {
-                MessageBox.Show("bienvenido admin");
-
-
-            }
-            else { MessageBox.Show("eso no es eso"); }
-
-
-
-
-
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            string connStr = configuracionDB.ObtenerConnectionString();
+            lblmensaje.Text = "";
+            btnIniciarsesion.Enabled = false;
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(connStr))
-                {
-                    conn.Open();
-                    var cmd = new SqlCommand("SELECT COUNT(*) FROM HABITACIONES", conn);
-                    int total = (int)cmd.ExecuteScalar();
+                string usuarioIngresado = txtUsuario.Text.Trim();
+                string contrasenaIngresada = txtContrasena.Text;
 
-                    MessageBox.Show("Conectado. Hay " + total + " habitaciones en la BD.");
+                if (string.IsNullOrWhiteSpace(usuarioIngresado) || string.IsNullOrWhiteSpace(contrasenaIngresada))
+                {
+                    throw new FormatException("Debe escribir el usuario y la contraseña.");
                 }
+
+                Usuario usuario = usuarioService.ValidarLogin(usuarioIngresado, contrasenaIngresada);
+
+                if (usuario == null)
+                {
+                    lblmensaje.Text = "Usuario o contraseña incorrectos.";
+                    return;
+                }
+
+                // Guardamos el usuario logueado para el resto de la aplicación
+                SesionActual.UsuarioLogueado = usuario;
+
+                // Dejamos constancia del login en la bitácora
+                bitacoraDal.Registrar(usuario.Id, "Login", "Inicio de sesión de " + usuario.NombreUsuario);
+
+                MessageBox.Show(
+                    "Bienvenido, " + usuario.NombreCompleto + " (" + usuario.Rol + ")",
+                    "Acceso concedido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                // TODO: aquí se abrirá el Dashboard cuando lo construyamos.
+                // this.Hide();
+                // FrmDashboard dashboard = new FrmDashboard();
+                // dashboard.ShowDialog();
+                // this.Close();
             }
-            catch (SqlException ex)
+            catch (FormatException ex)
             {
-                MessageBox.Show("Error de conexión: " + ex.Message, "BD inaccesible",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Datos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            catch (SqlException)
+            {
+                MessageBox.Show(
+                    "No se pudo conectar con la base de datos. Verifique su conexión.",
+                    "Error de conexión",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnIniciarsesion.Enabled = true;
+            }
+
         }
     }
 }

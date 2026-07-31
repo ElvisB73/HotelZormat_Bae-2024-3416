@@ -1,4 +1,5 @@
-﻿using Hotel.Negocio_;
+﻿// Cedula: 402444623662
+using Hotel.Negocio_;
 using Hotel.Negocio_.DaL;
 using Hotel.Negocio_.Modelo;
 using System;
@@ -42,7 +43,8 @@ namespace HotelZormat.Negocio.Servicios
                 throw new FormatException("La tarifa debe ser mayor a cero.");
             }
 
-            if (habitacion.Tipo != "Sencilla" && habitacion.Tipo != "Doble" && habitacion.Tipo != "Suite")
+            if (habitacion.Tipo != TiposHabitacion.Sencilla && habitacion.Tipo != TiposHabitacion.Doble
+                && habitacion.Tipo != TiposHabitacion.Suite)
             {
                 throw new FormatException("El tipo debe ser Sencilla, Doble o Suite.");
             }
