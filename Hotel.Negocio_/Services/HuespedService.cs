@@ -63,17 +63,17 @@ namespace HotelZormat.Negocio.Servicios
                 throw new FormatException("El apellido del huésped es obligatorio.");
             }
 
-            if (huesped.TipoDocumento != "Cedula" && huesped.TipoDocumento != "Pasaporte")
+            if (huesped.TipoDocumento != TiposDocumento.Cedula && huesped.TipoDocumento != TiposDocumento.Pasaporte)
             {
                 throw new FormatException("El tipo de documento debe ser Cedula o Pasaporte.");
             }
 
-            if (huesped.TipoDocumento == "Cedula" && !ValidarCedula(huesped.NumeroDocumento))
+            if (huesped.TipoDocumento == TiposDocumento.Cedula && !ValidarCedula(huesped.NumeroDocumento))
             {
                 throw new FormatException("La cédula debe tener exactamente 11 dígitos numéricos.");
             }
 
-            if (huesped.TipoDocumento == "Pasaporte" && string.IsNullOrWhiteSpace(huesped.NumeroDocumento))
+            if (huesped.TipoDocumento == TiposDocumento.Pasaporte && string.IsNullOrWhiteSpace(huesped.NumeroDocumento))
             {
                 throw new FormatException("El número de pasaporte es obligatorio.");
             }

@@ -30,7 +30,7 @@ namespace HotelZormat.Negocio.Servicios
                 throw new FormatException("La reserva indicada no existe.");
             }
 
-            if (reserva.Estado != "Confirmada")
+            if (reserva.Estado != EstadosReserva.Confirmada)
             {
                 throw new FormatException("Solo se puede hacer check-in de una reserva Confirmada.");
             }
@@ -45,7 +45,7 @@ namespace HotelZormat.Negocio.Servicios
 
             int estadiaId = estadiaDal.Insertar(estadia);
 
-            habitacionDal.ActualizarEstado(reserva.NumeroHabitacion, "Ocupada");
+            habitacionDal.ActualizarEstado(reserva.NumeroHabitacion, EstadosHabitacion.Ocupada);
 
             bitacoraDal.Registrar(usuarioId, "CheckIn",
                 "Check-in de la habitacion " + reserva.NumeroHabitacion);
@@ -97,7 +97,7 @@ namespace HotelZormat.Negocio.Servicios
             factura.Id = facturaDal.Insertar(factura);
 
             // La habitación pasa a Limpieza, no directo a Disponible
-            habitacionDal.ActualizarEstado(habitacionNumero, "Limpieza");
+            habitacionDal.ActualizarEstado(habitacionNumero, EstadosHabitacion.Limpieza);
 
             bitacoraDal.Registrar(usuarioId, "CheckOut",
                 "Check-out de la habitacion " + habitacionNumero + ", factura " + ncf);

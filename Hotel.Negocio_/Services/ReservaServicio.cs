@@ -43,15 +43,15 @@ namespace HotelZormat.Negocio.Servicios
 
             switch (temporada)
             {
-                case "Baja":
+                case Temporadas.Baja:
                     factor = 0.20m;
                     break;
 
-                case "Media":
+                case Temporadas.Media:
                     factor = 0.10m;
                     break;
 
-                case "Alta":
+                case Temporadas.Alta:
                     factor = 0m;
                     break;
 
@@ -123,13 +123,13 @@ namespace HotelZormat.Negocio.Servicios
                 Temporada = temporada,
                 TotalNoches = noches,
                 MontoTotal = montoTotal,
-                Estado = "Pendiente"
+                Estado = EstadosReserva.Pendiente
             };
 
             int nuevoId = reservaDal.Insertar(reserva);
 
             // La habitación pasa a Reservada mientras se confirma
-            habitacionDal.ActualizarEstado(habitacion.Numero, "Reservada");
+            habitacionDal.ActualizarEstado(habitacion.Numero, EstadosHabitacion.Reservada);
 
             return nuevoId;
         }
