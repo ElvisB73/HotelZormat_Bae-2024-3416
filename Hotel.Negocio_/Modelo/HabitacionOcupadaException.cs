@@ -8,10 +8,16 @@ namespace Hotel.Negocio_
 {
     public class HabitacionException : Exception
     {
-        public HabitacionException(int Numero)
-            : base ($"La Habitacion {Numero} esta ocupada")
-        {
+        // Propiedad propia de la excepción, exigida por la rúbrica.
+        // Permite que quien atrape la excepción sepa exactamente
+        // qué habitación causó el problema, sin tener que parsear
+        // el texto del mensaje.
+        public int NumeroHabitacion { get; }
 
+        public HabitacionException(int Numero)
+            : base($"La Habitacion {Numero} esta ocupada")
+        {
+            NumeroHabitacion = Numero;
         }
     }
 }

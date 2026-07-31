@@ -46,13 +46,16 @@
     <Compile Include="DaL\Huespeddal.cs" />
     <Compile Include="DaL\Reservadal.cs" />
     <Compile Include="DaL\usuariodalcs.cs" />
+    <Compile Include="Modelo\Estadia.cs" />
     <Compile Include="Modelo\HabitacionOcupadaException.cs" />
     <Compile Include="Modelo\Habitacion.cs" />
     <Compile Include="Modelo\Huesped.cs" />
     <Compile Include="Modelo\Reserva.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Modelo\ReservaServicio.cs" />
+    <Compile Include="Services\HuespedService.cs" />
+    <Compile Include="Services\ReservaServicio.cs" />
+    <Compile Include="Services\Usuarioservice.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hotel.Datos_\Hotel.Datos.csproj">
