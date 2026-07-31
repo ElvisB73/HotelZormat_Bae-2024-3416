@@ -63,7 +63,7 @@
             this.cboTipoDocumento.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboTipoDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboTipoDocumento.ItemHeight = 30;
-            this.cboTipoDocumento.Location = new System.Drawing.Point(21, 64);
+            this.cboTipoDocumento.Location = new System.Drawing.Point(22, 64);
             this.cboTipoDocumento.Name = "cboTipoDocumento";
             this.cboTipoDocumento.Size = new System.Drawing.Size(315, 36);
             this.cboTipoDocumento.TabIndex = 0;
@@ -80,7 +80,7 @@
             this.txtNumeroDocumento.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNumeroDocumento.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNumeroDocumento.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumeroDocumento.Location = new System.Drawing.Point(21, 122);
+            this.txtNumeroDocumento.Location = new System.Drawing.Point(22, 122);
             this.txtNumeroDocumento.Name = "txtNumeroDocumento";
             this.txtNumeroDocumento.PlaceholderText = "";
             this.txtNumeroDocumento.SelectedText = "";
@@ -99,7 +99,7 @@
             this.txtApellido.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtApellido.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtApellido.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtApellido.Location = new System.Drawing.Point(188, 180);
+            this.txtApellido.Location = new System.Drawing.Point(189, 180);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.PlaceholderText = "";
             this.txtApellido.SelectedText = "";
@@ -118,7 +118,7 @@
             this.txtNacionalidad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNacionalidad.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNacionalidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNacionalidad.Location = new System.Drawing.Point(21, 242);
+            this.txtNacionalidad.Location = new System.Drawing.Point(22, 242);
             this.txtNacionalidad.Name = "txtNacionalidad";
             this.txtNacionalidad.PlaceholderText = "";
             this.txtNacionalidad.SelectedText = "";
@@ -137,7 +137,7 @@
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmail.Location = new System.Drawing.Point(263, 309);
+            this.txtEmail.Location = new System.Drawing.Point(264, 309);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceholderText = "";
             this.txtEmail.SelectedText = "";
@@ -156,7 +156,7 @@
             this.txtTelefono.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTelefono.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTelefono.Location = new System.Drawing.Point(21, 309);
+            this.txtTelefono.Location = new System.Drawing.Point(22, 309);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.PlaceholderText = "";
             this.txtTelefono.SelectedText = "";
@@ -175,7 +175,7 @@
             this.txtNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNombre.Location = new System.Drawing.Point(21, 180);
+            this.txtNombre.Location = new System.Drawing.Point(22, 180);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PlaceholderText = "";
             this.txtNombre.SelectedText = "";
@@ -191,7 +191,7 @@
             this.btnNuevo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(21, 361);
+            this.btnNuevo.Location = new System.Drawing.Point(22, 361);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(130, 38);
             this.btnNuevo.TabIndex = 7;
@@ -207,7 +207,7 @@
             this.btnGuardar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(166, 361);
+            this.btnGuardar.Location = new System.Drawing.Point(167, 361);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(130, 38);
             this.btnGuardar.TabIndex = 8;
@@ -224,7 +224,7 @@
             this.btnEliminar.FillColor = System.Drawing.Color.Red;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(324, 361);
+            this.btnEliminar.Location = new System.Drawing.Point(325, 361);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(130, 38);
             this.btnEliminar.TabIndex = 9;
@@ -348,7 +348,7 @@
             this.btnBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(658, 7);
+            this.btnBuscar.Location = new System.Drawing.Point(659, 7);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(130, 38);
             this.btnBuscar.TabIndex = 20;

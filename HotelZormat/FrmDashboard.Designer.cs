@@ -148,6 +148,7 @@
             this.btnReservas.Size = new System.Drawing.Size(200, 45);
             this.btnReservas.TabIndex = 4;
             this.btnReservas.Text = "Reservas";
+            this.btnReservas.Click += new System.EventHandler(this.btnReservas_Click);
             // 
             // btnMenuReportes
             // 

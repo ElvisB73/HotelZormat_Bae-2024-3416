@@ -191,6 +191,12 @@ namespace HotelZormat
             FrmHuesped frm = new FrmHuesped();
             frm.Show();
         }
+
+        private void btnReservas_Click(object sender, EventArgs e)
+        {
+            Frmreserva frm = new Frmreserva();
+            frm.Show();
+        }
     }
     
 }
