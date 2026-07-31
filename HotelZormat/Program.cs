@@ -16,7 +16,7 @@ namespace HotelZormat
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmHabitacionGestiion());
+            Application.Run(new Form1());
         }
     }
 }

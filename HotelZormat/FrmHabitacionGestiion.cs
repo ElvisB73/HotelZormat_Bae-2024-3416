@@ -23,14 +23,8 @@ namespace HotelZormat
             InitializeComponent();
         }
 
-        // ============================================================
-        // EVENTO: Form_Load
-        // PASO 1 – Carga el ComboBox con tipos de habitación
-        // PASO 2 – Carga el ListBox con habitaciones del PISO 3 (FOREACH)
-        // ============================================================
-        private void Form1_Load(object sender, EventArgs e)
+        private void FrmHabitacionGestiion_Load(object sender, EventArgs e)
         {
-            // PASO 1 – Tipos (hardcodeados igual que tu BD)
             cboTipo.Items.Clear();
             cboTipo.Items.Add("SENCILLA");
             cboTipo.Items.Add("DOBLE");
@@ -40,13 +34,11 @@ namespace HotelZormat
             CargarHabitacionesPiso3();
         }
 
-        // ── Carga habitaciones del piso 3 desde la BD ───────────────
         private void CargarHabitacionesPiso3()
         {
-            // PASO 2 – FOREACH sobre los datos que vienen de la BD
             lstHabitaciones.Items.Clear();
 
-            var habitacionesPiso3 = dal.ObtenerPorPiso(3);
+            List<Habitacion> habitacionesPiso3 = dal.ObtenerPorPiso(3);
 
             foreach (Habitacion h in habitacionesPiso3)
             {
@@ -54,43 +46,54 @@ namespace HotelZormat
             }
         }
 
-        // ============================================================
-        // MÉTODO: ObtenerTarifa
-        // PASO 4 – Tarifa según el tipo (SWITCH)
-        // La tabla no tiene columna Tarifa, se calcula aquí
-        // ============================================================
         private decimal ObtenerTarifa(string tipo)
         {
+            decimal tarifa;
+
             switch (tipo)
             {
-                case "SENCILLA": return 2500m;
-                case "DOBLE": return 4000m;
-                case "SUITE": return 7000m;
+                case "SENCILLA":
+                    tarifa = 2500m;
+                    break;
+                case "DOBLE":
+                    tarifa = 4000m;
+                    break;
+                case "SUITE":
+                    tarifa = 7000m;
+                    break;
                 default:
-                    throw new ArgumentException($"Tipo desconocido: {tipo}");
+                    throw new ArgumentException("Tipo desconocido: " + tipo);
             }
+
+            return tarifa;
         }
 
-        // ============================================================
-        // MÉTODO: ObtenerColorEstado
-        // PASO 5 – Color según el estado (SWITCH)
-        // ============================================================
         private Color ObtenerColorEstado(string estado)
         {
+            Color color;
+
             switch (estado)
             {
-                case "DISPONIBLE": return Color.Green;
-                case "OCUPADA": return Color.Red;
-                case "RESERVADA": return Color.Blue;
-                case "LIMPIEZA": return Color.Orange;
-                default: return Color.Black;
+                case "DISPONIBLE":
+                    color = Color.Green;
+                    break;
+                case "OCUPADA":
+                    color = Color.Red;
+                    break;
+                case "RESERVADA":
+                    color = Color.Blue;
+                    break;
+                case "LIMPIEZA":
+                    color = Color.Orange;
+                    break;
+                default:
+                    color = Color.Black;
+                    break;
             }
+
+            return color;
         }
 
-        // ============================================================
-        // MÉTODO: ConfigurarBotones
-        // PASO 6 – Habilitar solo el botón correcto según estado (SWITCH)
-        // ============================================================
         private void ConfigurarBotones(string estado)
         {
             btnCheckIn.Enabled = false;
@@ -100,30 +103,39 @@ namespace HotelZormat
 
             switch (estado)
             {
-                case "DISPONIBLE": btnCheckIn.Enabled = true; break;
-                case "OCUPADA": btnCheckOut.Enabled = true; break;
-                case "RESERVADA": btnReservar.Enabled = true; break;
-                case "LIMPIEZA": btnLimpiar.Enabled = true; break;
+                case "DISPONIBLE":
+                    btnCheckIn.Enabled = true;
+                    break;
+                case "OCUPADA":
+                    btnCheckOut.Enabled = true;
+                    break;
+                case "RESERVADA":
+                    btnReservar.Enabled = true;
+                    break;
+                case "LIMPIEZA":
+                    btnLimpiar.Enabled = true;
+                    break;
             }
         }
 
-        // ============================================================
-        // EVENTO: cboTipo_SelectedIndexChanged
-        // PASO 3 – Ícono según el tipo (SWITCH)
-        // PASO 4 – Muestra tarifa visualmente
-        // ============================================================
         private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // PASO 3 – Ícono
             switch (cboTipo.Text)
             {
-                case "SENCILLA": lblIcono.Text = "🛏"; break;
-                case "DOBLE": lblIcono.Text = "🛌"; break;
-                case "SUITE": lblIcono.Text = "🏨"; break;
-                default: lblIcono.Text = "❓"; break;
+                case "SENCILLA":
+                    lblIcono.Text = "Individual";
+                    break;
+                case "DOBLE":
+                    lblIcono.Text = "Doble";
+                    break;
+                case "SUITE":
+                    lblIcono.Text = "Suite";
+                    break;
+                default:
+                    lblIcono.Text = "Desconocido";
+                    break;
             }
 
-            // PASO 4 – Tarifa
             try
             {
                 decimal tarifa = ObtenerTarifa(cboTipo.Text);
@@ -135,10 +147,6 @@ namespace HotelZormat
             }
         }
 
-        // ============================================================
-        // EVENTO: btnBuscar_Click
-        // PASO 8 – Buscar habitación en BD (TRY / CATCH)
-        // ============================================================
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -148,9 +156,12 @@ namespace HotelZormat
                 habitacionActual = dal.BuscarPorNumero(numero);
 
                 if (habitacionActual == null)
-                    throw new Exception($"No se encontró la habitación {numero}.");
+                {
+                    throw new Exception("No se encontró la habitación " + numero + ".");
+                }
 
-                // Actualizar UI con datos reales de la BD
+                habitacionActual.Estado = habitacionActual.Estado.ToUpper();
+
                 lblEstado.Text = "Estado: " + habitacionActual.Estado;
                 lblEstado.ForeColor = ObtenerColorEstado(habitacionActual.Estado);
                 cboTipo.Text = habitacionActual.Tipo;
@@ -158,39 +169,47 @@ namespace HotelZormat
             }
             catch (FormatException)
             {
-                // PASO 8 – CATCH para entrada inválida
-                MessageBox.Show("Debe escribir un número válido.", "Advertencia",
+                MessageBox.Show("Debe escribir un número válido.", "Advertencia", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        // ============================================================
-        // MÉTODO: ObtenerMensajeConfirmacion
-        // PASO 7 – Mensaje según la acción (SWITCH)
-        // ============================================================
         private string ObtenerMensajeConfirmacion(string accion)
         {
+            string mensaje;
+
             switch (accion)
             {
-                case "CheckIn": return "¿Desea realizar el Check In?";
-                case "CheckOut": return "¿Desea realizar el Check Out?";
-                case "Reservar": return "¿Desea realizar la Reserva?";
-                case "Limpiar": return "¿Desea marcar la habitación para Limpieza?";
-                default: return "¿Confirmar acción?";
+                case "CheckIn":
+                    mensaje = "¿Desea realizar el Check In?";
+                    break;
+                case "CheckOut":
+                    mensaje = "¿Desea realizar el Check Out?";
+                    break;
+                case "Reservar":
+                    mensaje = "¿Desea realizar la Reserva?";
+                    break;
+                case "Limpiar":
+                    mensaje = "¿Desea marcar la habitación para Limpieza?";
+                    break;
+                default:
+                    mensaje = "¿Confirmar acción?";
+                    break;
             }
-        }
 
-        // ── Eventos de los 4 botones de acción ──────────────────────
+            return mensaje;
+        }
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(ObtenerMensajeConfirmacion("CheckIn"), "Confirmación",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("CheckIn"), "Confirmación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
             {
                 GuardarCambio("OCUPADA");
             }
@@ -198,8 +217,10 @@ namespace HotelZormat
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(ObtenerMensajeConfirmacion("CheckOut"), "Confirmación",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("CheckOut"), "Confirmación", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
             {
                 GuardarCambio("DISPONIBLE");
             }
@@ -207,8 +228,10 @@ namespace HotelZormat
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(ObtenerMensajeConfirmacion("Reservar"), "Confirmación",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("Reservar"), "Confirmación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
             {
                 GuardarCambio("RESERVADA");
             }
@@ -216,17 +239,27 @@ namespace HotelZormat
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(ObtenerMensajeConfirmacion("Limpiar"), "Confirmación",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            DialogResult respuesta = MessageBox.Show(ObtenerMensajeConfirmacion("Limpiar"), "Confirmación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
             {
                 GuardarCambio("LIMPIEZA");
             }
         }
 
-        // ============================================================
-        // MÉTODO: GuardarCambio
-        // PASO 9 – Guardar en BD con TRY / CATCH / FINALLY
-        // ============================================================
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (habitacionActual == null)
+            {
+                MessageBox.Show("Primero busque una habitación.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            GuardarCambio(habitacionActual.Estado);
+        }
+
         private void GuardarCambio(string nuevoEstado)
         {
             btnGuardar.Enabled = false;
@@ -234,24 +267,23 @@ namespace HotelZormat
             try
             {
                 if (habitacionActual == null)
+                {
                     throw new Exception("Primero busque una habitación.");
+                }
 
-                // Si intenta Check In y ya está OCUPADA → excepción personalizada
                 if (nuevoEstado == "OCUPADA" && habitacionActual.Estado == "OCUPADA")
+                {
                     throw new HabitacionException(habitacionActual.Numero);
+                }
 
-                // Guardar en la BD real
                 dal.ActualizarEstado(habitacionActual.Numero, nuevoEstado);
 
-                // Actualizar objeto en memoria
                 habitacionActual.Estado = nuevoEstado;
 
-                // Refrescar UI
                 lblEstado.Text = "Estado: " + nuevoEstado;
                 lblEstado.ForeColor = ObtenerColorEstado(nuevoEstado);
                 ConfigurarBotones(nuevoEstado);
 
-                // Refrescar lista del piso 3
                 CargarHabitacionesPiso3();
 
                 MessageBox.Show("Cambio guardado correctamente.", "Éxito",
@@ -264,12 +296,10 @@ namespace HotelZormat
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                // PASO 9 – FINALLY: siempre vuelve a habilitar
                 btnGuardar.Enabled = true;
             }
         }

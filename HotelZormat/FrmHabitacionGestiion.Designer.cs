@@ -189,16 +189,6 @@ namespace HotelZormat
 
         }
 
-        private void FrmHabitacionGestiion_Load(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         // Declaracion de controles
         private System.Windows.Forms.Label lblTituloTipo;
         private System.Windows.Forms.ComboBox cboTipo;
