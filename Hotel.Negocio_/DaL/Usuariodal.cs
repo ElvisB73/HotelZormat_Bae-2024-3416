@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.Negocio_
+namespace Hotel.Negocio_.DaL
 {
-    public class Class1
+    internal class Usuariodal
     {
     }
 }
