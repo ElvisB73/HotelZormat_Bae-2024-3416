@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.btnCerrarSesion = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenuDasboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenuHabitaciones = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenuHuesped = new Guna.UI2.WinForms.Guna2Button();
             this.btnReservas = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenuReportes = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenuBitacora = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCerrarSesion = new Guna.UI2.WinForms.Guna2Button();
-            this.lblNombre = new System.Windows.Forms.Label();
             this.lblUsuarioActual = new System.Windows.Forms.Label();
             this.flpHabitaciones = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlMenu.SuspendLayout();
@@ -57,6 +57,34 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(200, 451);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.BackColor = System.Drawing.Color.Blue;
+            this.lblNombre.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
+            this.lblNombre.Location = new System.Drawing.Point(10, 10);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(176, 21);
+            this.lblNombre.TabIndex = 8;
+            this.lblNombre.Text = "Hotel Zormat_Bae";
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCerrarSesion.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCerrarSesion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCerrarSesion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCerrarSesion.FillColor = System.Drawing.Color.Blue;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(3, 364);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(197, 53);
+            this.btnCerrarSesion.TabIndex = 7;
+            this.btnCerrarSesion.Text = "Cerrar Sesion";
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // btnMenuDasboard
             // 
@@ -104,6 +132,7 @@
             this.btnMenuHuesped.Size = new System.Drawing.Size(200, 45);
             this.btnMenuHuesped.TabIndex = 3;
             this.btnMenuHuesped.Text = "Huespedes";
+            this.btnMenuHuesped.Click += new System.EventHandler(this.btnMenuHuesped_Click);
             // 
             // btnReservas
             // 
@@ -149,36 +178,6 @@
             this.btnMenuBitacora.Size = new System.Drawing.Size(200, 49);
             this.btnMenuBitacora.TabIndex = 6;
             this.btnMenuBitacora.Text = "Bitacora";
-           // this.btnMenuBitacora.Click += new System.EventHandler(this.guna2Button6_Click);
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCerrarSesion.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCerrarSesion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCerrarSesion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCerrarSesion.FillColor = System.Drawing.Color.Blue;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(3, 364);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(197, 53);
-            this.btnCerrarSesion.TabIndex = 7;
-            this.btnCerrarSesion.Text = "Cerrar Sesion";
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.BackColor = System.Drawing.Color.Blue;
-            this.lblNombre.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(10, 10);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(176, 21);
-            this.lblNombre.TabIndex = 8;
-            this.lblNombre.Text = "Hotel Zormat_Bae";
-          //  this.lblNombre.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblUsuarioActual
             // 
@@ -196,7 +195,7 @@
             this.flpHabitaciones.Name = "flpHabitaciones";
             this.flpHabitaciones.Size = new System.Drawing.Size(608, 451);
             this.flpHabitaciones.TabIndex = 2;
-            //this.flpHabitaciones.Paint += new System.Windows.Forms.PaintEventHandler(this.flpHabitaciones_Paint);
+            this.flpHabitaciones.Paint += new System.Windows.Forms.PaintEventHandler(this.flpHabitaciones_Paint);
             // 
             // FrmDashboard
             // 

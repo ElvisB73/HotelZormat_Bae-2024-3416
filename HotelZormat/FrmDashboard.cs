@@ -180,7 +180,18 @@ namespace HotelZormat
                     login.Show();
                 }
             }
+
+        private void flpHabitaciones_Paint(object sender, PaintEventArgs e)
+        {
+
         }
+
+        private void btnMenuHuesped_Click(object sender, EventArgs e)
+        {
+            FrmHuesped frm = new FrmHuesped();
+            frm.Show();
+        }
+    }
     
 }
 

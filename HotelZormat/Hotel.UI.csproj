@@ -76,6 +76,12 @@
     <Compile Include="FrmHabitacionGestiion.Designer.cs">
       <DependentUpon>FrmHabitacionGestiion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmHuesped.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHuesped.Designer.cs">
+      <DependentUpon>FrmHuesped.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPRINCIPAL .cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHabitacionGestiion.resx">
       <DependentUpon>FrmHabitacionGestiion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHuesped.resx">
+      <DependentUpon>FrmHuesped.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPRINCIPAL .resx">
       <DependentUpon>FrmPRINCIPAL .cs</DependentUpon>

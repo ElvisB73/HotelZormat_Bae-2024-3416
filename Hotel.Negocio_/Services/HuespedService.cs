@@ -1,4 +1,5 @@
-﻿using Hotel.Negocio_.DaL;
+﻿// Cedula: 402444623662
+using Hotel.Negocio_.DaL;
 using Hotel.Negocio_.Modelo;
 using System;
 using System.Collections.Generic;
@@ -111,6 +112,12 @@ namespace HotelZormat.Negocio.Servicios
         public List<Huesped> ObtenerTodos()
         {
             return huespedDal.ObtenerTodos();
+        }
+
+        // ── Busca un huésped por su Id ───────────────────────────────
+        public Huesped ObtenerPorId(int id)
+        {
+            return huespedDal.BuscarPorId(id);
         }
 
         // ── Busca por cédula/pasaporte exacto o por nombre parcial ───
