@@ -58,6 +58,12 @@
     <Compile Include="Diadesemana.Designer.cs">
       <DependentUpon>Diadesemana.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHabitacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Diadesemana.resx">
       <DependentUpon>Diadesemana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDashboard.resx">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHabitacion.resx">
       <DependentUpon>FrmHabitacion.cs</DependentUpon>

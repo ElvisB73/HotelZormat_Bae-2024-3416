@@ -72,11 +72,11 @@ namespace HotelZormat
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                // TODO: aquí se abrirá el Dashboard cuando lo construyamos.
-                // this.Hide();
-                // FrmDashboard dashboard = new FrmDashboard();
-                // dashboard.ShowDialog();
-                // this.Close();
+               //  aquí se abrirá el Dashboard cuando lo construyamos.
+                 this.Hide();
+                FrmDashboard dashboard = new FrmDashboard();
+                dashboard.ShowDialog();
+                this.Close();
             }
             catch (FormatException ex)
             {
