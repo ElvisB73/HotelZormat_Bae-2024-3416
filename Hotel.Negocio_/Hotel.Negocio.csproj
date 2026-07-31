@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DaL\Bitacoradal.cs" />
     <Compile Include="DaL\Estadiadal.cs" />
+    <Compile Include="DaL\Facturadal.cs" />
     <Compile Include="DaL\HabitacionDal.cs" />
     <Compile Include="DaL\Huespeddal.cs" />
     <Compile Include="DaL\Reservadal.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="Modelo\Reserva.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Estadiaservice.cs" />
     <Compile Include="Services\HuespedService.cs" />
     <Compile Include="Services\ReservaServicio.cs" />
     <Compile Include="Services\Usuarioservice.cs" />
