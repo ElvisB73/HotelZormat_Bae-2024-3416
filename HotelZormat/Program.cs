@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Cedula: 402-4462366-2
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,10 @@ namespace HotelZormat
 {
     internal static class Program
     {
+        // Matricula del estudiante, requerida por la practica ISW-123
+        // como marcador anti-IA (Elvis Baez, matricula 2024-3416).
+        static string matricula = "2024-3416";
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

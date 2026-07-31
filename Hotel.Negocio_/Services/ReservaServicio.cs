@@ -1,4 +1,5 @@
-﻿using Hotel.Negocio_;
+﻿// Cedula: 402444623662
+using Hotel.Negocio_;
 using Hotel.Negocio_.DaL;
 using Hotel.Negocio_.Modelo;
 using System;
@@ -138,6 +139,43 @@ namespace HotelZormat.Negocio.Servicios
         public List<Reserva> ObtenerProximas7Dias()
         {
             return reservaDal.ObtenerProximas7Dias();
+        }
+
+        // ── Confirma una reserva Pendiente ────────────────────────────
+        public void ConfirmarReserva(int reservaId)
+        {
+            Reserva reserva = reservaDal.BuscarPorId(reservaId);
+            if (reserva == null)
+            {
+                throw new FormatException("La reserva indicada no existe.");
+            }
+
+            if (reserva.Estado != EstadosReserva.Pendiente)
+            {
+                throw new FormatException("Solo se puede confirmar una reserva que esté Pendiente.");
+            }
+
+            reservaDal.CambiarEstado(reservaId, EstadosReserva.Confirmada);
+        }
+
+        // ── Cancela una reserva y libera la habitación ────────────────
+        public void CancelarReserva(int reservaId)
+        {
+            Reserva reserva = reservaDal.BuscarPorId(reservaId);
+            if (reserva == null)
+            {
+                throw new FormatException("La reserva indicada no existe.");
+            }
+
+            if (reserva.Estado == EstadosReserva.Cancelada)
+            {
+                throw new FormatException("Esta reserva ya está cancelada.");
+            }
+
+            reservaDal.CambiarEstado(reservaId, EstadosReserva.Cancelada);
+
+            // Si la habitación estaba Reservada por esta reserva, vuelve a Disponible
+            habitacionDal.ActualizarEstado(reserva.NumeroHabitacion, EstadosHabitacion.Disponible);
         }
 
         /// <summary>

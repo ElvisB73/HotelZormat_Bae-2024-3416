@@ -47,6 +47,7 @@
     <Compile Include="DaL\Facturadal.cs" />
     <Compile Include="DaL\HabitacionDal.cs" />
     <Compile Include="DaL\Huespeddal.cs" />
+    <Compile Include="DaL\Reportedal.cs" />
     <Compile Include="DaL\Reservadal.cs" />
     <Compile Include="DaL\usuariodalcs.cs" />
     <Compile Include="Modelo\Constantes.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Services\Estadiaservice.cs" />
     <Compile Include="Services\Habitacionservice.cs" />
     <Compile Include="Services\HuespedService.cs" />
+    <Compile Include="Services\Reporteservice.cs" />
     <Compile Include="Services\ReservaServicio.cs" />
     <Compile Include="Services\Usuarioservice.cs" />
   </ItemGroup>
