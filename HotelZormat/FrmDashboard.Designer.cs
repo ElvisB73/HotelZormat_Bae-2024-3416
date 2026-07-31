@@ -145,7 +145,7 @@
             this.btnReservas.ForeColor = System.Drawing.Color.White;
             this.btnReservas.Location = new System.Drawing.Point(0, 207);
             this.btnReservas.Name = "btnReservas";
-            this.btnReservas.Size = new System.Drawing.Size(200, 45);
+            this.btnReservas.Size = new System.Drawing.Size(197, 45);
             this.btnReservas.TabIndex = 4;
             this.btnReservas.Text = "Reservas";
             this.btnReservas.Click += new System.EventHandler(this.btnReservas_Click);
@@ -164,6 +164,7 @@
             this.btnMenuReportes.Size = new System.Drawing.Size(200, 45);
             this.btnMenuReportes.TabIndex = 5;
             this.btnMenuReportes.Text = "Resportes";
+            this.btnMenuReportes.Click += new System.EventHandler(this.btnMenuReportes_Click);
             // 
             // btnMenuBitacora
             // 
