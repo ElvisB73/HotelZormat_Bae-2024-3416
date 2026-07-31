@@ -45,7 +45,7 @@
     <Compile Include="DaL\HabitacionDal.cs" />
     <Compile Include="DaL\Huespeddal.cs" />
     <Compile Include="DaL\Reservadal.cs" />
-    <Compile Include="DaL\Usuariodalcs.cs" />
+    <Compile Include="DaL\usuariodalcs.cs" />
     <Compile Include="Modelo\HabitacionOcupadaException.cs" />
     <Compile Include="Modelo\Habitacion.cs" />
     <Compile Include="Modelo\Huesped.cs" />

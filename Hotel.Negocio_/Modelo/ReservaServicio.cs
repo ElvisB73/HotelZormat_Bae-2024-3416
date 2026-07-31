@@ -50,10 +50,6 @@ namespace HotelZormat.Negocio.Servicios
                     factor = 0m;
                     break;
 
-                case "Pico":
-                    factor = -0.15m;   // negativo = recarga
-                    break;
-
                 default:
                     throw new ArgumentException("Temporada desconocida: " + temporada);
             }
