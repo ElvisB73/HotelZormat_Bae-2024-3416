@@ -1,4 +1,5 @@
-﻿using Hotel.Negocio_.Modelo;
+﻿// Cedula: 402444623662
+using Hotel.Negocio_.Modelo;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -62,6 +63,28 @@ namespace Hotel.Negocio_.DaL
             }
 
             return null;
+        }
+
+        // ── Trae TODAS las estadías activas (todas las habitaciones ────
+        // ocupadas ahora mismo), para mostrarlas en la lista de check-out.
+        public System.Collections.Generic.List<Estadia> ObtenerTodasActivas()
+        {
+            System.Collections.Generic.List<Estadia> lista = new System.Collections.Generic.List<Estadia>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = ConsultaBaseConJoin() + " WHERE E.ESTADO = 'Activa'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    lista.Add(MapearEstadia(reader));
+                }
+            }
+
+            return lista;
         }
 
         // ── Busca la estadía activa de una habitación (si tiene) ─────

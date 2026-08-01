@@ -209,6 +209,12 @@ namespace HotelZormat
             FrmBitacora frm = new FrmBitacora();
             frm.Show();
         }
+
+        private void BtnMenuCheckInOut_Click(object sender, EventArgs e)
+        {
+            FrmCheckInOut frm = new FrmCheckInOut();
+            frm.Show();
+        }
     }
     
 }

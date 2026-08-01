@@ -1,4 +1,5 @@
-﻿using Hotel.Negocio_;
+﻿// Cedula: 402444623662
+using Hotel.Negocio_;
 using Hotel.Negocio_.DaL;
 using Hotel.Negocio_.Modelo;
 using System;
@@ -19,6 +20,28 @@ namespace HotelZormat.Negocio.Servicios
         private ReservaDAL reservaDal = new ReservaDAL();
         private FacturaDAL facturaDal = new FacturaDAL();
         private BitacoraDAL bitacoraDal = new BitacoraDAL();
+
+        // ── Lista las reservas Confirmadas, listas para hacer check-in ──
+        public System.Collections.Generic.List<Reserva> ObtenerReservasConfirmadas()
+        {
+            System.Collections.Generic.List<Reserva> confirmadas = new System.Collections.Generic.List<Reserva>();
+
+            foreach (Reserva reserva in reservaDal.ObtenerTodas())
+            {
+                if (reserva.Estado == EstadosReserva.Confirmada)
+                {
+                    confirmadas.Add(reserva);
+                }
+            }
+
+            return confirmadas;
+        }
+
+        // ── Lista todas las habitaciones ocupadas ahora mismo ─────────
+        public System.Collections.Generic.List<Estadia> ObtenerEstadiasActivas()
+        {
+            return estadiaDal.ObtenerTodasActivas();
+        }
 
         // ── Convierte una reserva confirmada en una estadía activa ────
         // Cambia la habitación a Ocupada y registra la acción en bitácora.

@@ -39,11 +39,13 @@
             this.btnMenuBitacora = new Guna.UI2.WinForms.Guna2Button();
             this.lblUsuarioActual = new System.Windows.Forms.Label();
             this.flpHabitaciones = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnMenuCheckInOut = new Guna.UI2.WinForms.Guna2Button();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
             // 
+            this.pnlMenu.Controls.Add(this.BtnMenuCheckInOut);
             this.pnlMenu.Controls.Add(this.lblNombre);
             this.pnlMenu.Controls.Add(this.btnCerrarSesion);
             this.pnlMenu.Controls.Add(this.btnMenuDasboard);
@@ -79,7 +81,7 @@
             this.btnCerrarSesion.FillColor = System.Drawing.Color.Blue;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(3, 364);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 398);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(197, 53);
             this.btnCerrarSesion.TabIndex = 7;
@@ -127,7 +129,7 @@
             this.btnMenuHuesped.FillColor = System.Drawing.Color.Blue;
             this.btnMenuHuesped.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMenuHuesped.ForeColor = System.Drawing.Color.White;
-            this.btnMenuHuesped.Location = new System.Drawing.Point(0, 156);
+            this.btnMenuHuesped.Location = new System.Drawing.Point(0, 144);
             this.btnMenuHuesped.Name = "btnMenuHuesped";
             this.btnMenuHuesped.Size = new System.Drawing.Size(200, 45);
             this.btnMenuHuesped.TabIndex = 3;
@@ -143,7 +145,7 @@
             this.btnReservas.FillColor = System.Drawing.Color.Blue;
             this.btnReservas.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnReservas.ForeColor = System.Drawing.Color.White;
-            this.btnReservas.Location = new System.Drawing.Point(0, 207);
+            this.btnReservas.Location = new System.Drawing.Point(-3, 190);
             this.btnReservas.Name = "btnReservas";
             this.btnReservas.Size = new System.Drawing.Size(197, 45);
             this.btnReservas.TabIndex = 4;
@@ -159,7 +161,7 @@
             this.btnMenuReportes.FillColor = System.Drawing.Color.Blue;
             this.btnMenuReportes.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMenuReportes.ForeColor = System.Drawing.Color.White;
-            this.btnMenuReportes.Location = new System.Drawing.Point(0, 258);
+            this.btnMenuReportes.Location = new System.Drawing.Point(-3, 292);
             this.btnMenuReportes.Name = "btnMenuReportes";
             this.btnMenuReportes.Size = new System.Drawing.Size(200, 45);
             this.btnMenuReportes.TabIndex = 5;
@@ -175,7 +177,7 @@
             this.btnMenuBitacora.FillColor = System.Drawing.Color.Blue;
             this.btnMenuBitacora.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMenuBitacora.ForeColor = System.Drawing.Color.White;
-            this.btnMenuBitacora.Location = new System.Drawing.Point(0, 309);
+            this.btnMenuBitacora.Location = new System.Drawing.Point(-3, 343);
             this.btnMenuBitacora.Name = "btnMenuBitacora";
             this.btnMenuBitacora.Size = new System.Drawing.Size(200, 49);
             this.btnMenuBitacora.TabIndex = 6;
@@ -199,6 +201,22 @@
             this.flpHabitaciones.Size = new System.Drawing.Size(608, 451);
             this.flpHabitaciones.TabIndex = 2;
             this.flpHabitaciones.Paint += new System.Windows.Forms.PaintEventHandler(this.flpHabitaciones_Paint);
+            // 
+            // BtnMenuCheckInOut
+            // 
+            this.BtnMenuCheckInOut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnMenuCheckInOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnMenuCheckInOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnMenuCheckInOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnMenuCheckInOut.FillColor = System.Drawing.Color.Blue;
+            this.BtnMenuCheckInOut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnMenuCheckInOut.ForeColor = System.Drawing.Color.White;
+            this.BtnMenuCheckInOut.Location = new System.Drawing.Point(0, 241);
+            this.BtnMenuCheckInOut.Name = "BtnMenuCheckInOut";
+            this.BtnMenuCheckInOut.Size = new System.Drawing.Size(197, 45);
+            this.BtnMenuCheckInOut.TabIndex = 5;
+            this.BtnMenuCheckInOut.Text = "CheckInOut";
+            this.BtnMenuCheckInOut.Click += new System.EventHandler(this.BtnMenuCheckInOut_Click);
             // 
             // FrmDashboard
             // 
@@ -231,5 +249,6 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblUsuarioActual;
         private System.Windows.Forms.FlowLayoutPanel flpHabitaciones;
+        private Guna.UI2.WinForms.Guna2Button BtnMenuCheckInOut;
     }
 }
