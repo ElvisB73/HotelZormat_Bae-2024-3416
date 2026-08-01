@@ -1,0 +1,112 @@
+# HotelZormat
+
+Sistema de gestión hotelera desarrollado como Práctica Final de la asignatura ISW-123 (Programación Media),
+Universidad Central del Este, 6to Semestre.
+
+## Datos del estudiante
+
+- **Nombre completo:** Elvis Báez
+- **Matrícula:** 2024-3416
+
+## Descripción del proyecto
+
+Aplicación de escritorio para la gestión operativa de un hotel boutique (Zormat Technology Solutions),
+que permite administrar habitaciones, huéspedes, reservas, check-in/check-out, facturación con NCF y
+reportes básicos de ocupación e ingresos.
+
+## Stack tecnológico
+
+- C# 7.3 / .NET Framework 4.7.2
+- Windows Forms
+- SQL Server (Express o superior)
+- [Guna.UI2.WinForms](https://www.nuget.org/packages/Guna.UI2.WinForms) (NuGet) — controles con estilo moderno (botones, cajas de texto y paneles redondeados)
+- Arquitectura en capas: `HotelZormat` (UI), `Hotel.Negocio_` (Negocio + Repositorios), `Hotel.Datos_` (Conexión)
+
+## Cómo configurar el proyecto
+
+### 1. Restaurar la base de datos
+
+1. Abre SQL Server Management Studio (SSMS) y conéctate a tu servidor local.
+2. Asegúrate de estar posicionado en la base de datos `master` antes de ejecutar el script.
+3. Abre el archivo `script_bd.sql` (incluido en la raíz de este repositorio) y ejecútalo completo (F5).
+4. Esto crea la base de datos `HotelBae`, todas sus tablas, y los datos iniciales de prueba
+   (usuarios, habitaciones y huéspedes de ejemplo).
+
+### 2. Configurar la cadena de conexión (App.config)
+
+El archivo `App.config` se encuentra en el proyecto `HotelZormat` (la capa de UI), en la raíz del proyecto.
+Contiene la cadena de conexión con el nombre `HotelBae`, que apunta a la base de datos creada en el paso
+anterior. Si tu instancia de SQL Server tiene un nombre distinto al de la máquina de desarrollo original,
+ajusta el valor de `Data Source` dentro de esa cadena de conexión antes de correr la aplicación.
+
+Ejemplo de cómo debería verse (ajusta `Data Source` según tu servidor):
+
+```xml
+<connectionStrings>
+  <add name="HotelBae"
+       connectionString="Data Source=.;Initial Catalog=HotelBae;Integrated Security=True"
+       providerName="System.Data.SqlClient" />
+</connectionStrings>
+```
+
+### 3. Usuarios de prueba
+
+El script de base de datos crea dos usuarios para poder iniciar sesión desde el primer momento:
+
+| Usuario      | Contraseña     | Rol             |
+|--------------|----------------|-----------------|
+| admin        | Admin123       | Administrador   |
+| recepcion1   | Recepcion123   | Recepcionista   |
+
+Las contraseñas se guardan con hash SHA256 en la base de datos, nunca en texto plano.
+
+### 4. Compilar y ejecutar
+
+1. Abre `HotelBAE.slnx` con Visual Studio.
+2. Deja que Visual Studio restaure el paquete NuGet `Guna.UI2.WinForms` automáticamente al abrir la solución
+   (si no lo hace solo, click derecho sobre la solución → "Restore NuGet Packages").
+3. Compila la solución completa (Ctrl+Shift+B).
+4. Ejecuta el proyecto de inicio `HotelZormat` (F5). Se abre primero la pantalla de inicio de sesión
+   (`FrmPRINCIPAL`).
+
+## Formularios de la aplicación
+
+| Formulario | Descripción |
+|---|---|
+| `FrmPRINCIPAL` | Inicio de sesión, valida usuario y contraseña (hash SHA256) contra la tabla `Usuarios`. |
+| `FrmDashboard` | Pantalla principal tras el login. Tablero con todas las habitaciones coloreadas por estado, con refresco automático cada 15 segundos, y menú de navegación al resto de los formularios. |
+| `FrmHabitacionGestiion` | CRUD completo de habitaciones (crear, listar con filtros por piso/estado, actualizar, eliminar). |
+| `FrmHuesped` | CRUD completo de huéspedes, con validación de cédula (11 dígitos) o pasaporte, búsqueda, e historial de estadías. |
+| `FrmReserva` | Creación de reservas (con cálculo automático de noches y monto según temporada), confirmación y cancelación, y listado de reservas próximas a 7 días. |
+| `FrmCheckInOut` | Convierte una reserva Confirmada en una estadía activa (check-in), y cierra la estadía generando la factura con NCF (check-out). |
+| `FrmReporte` | Reporte de ocupación del día y de ingresos por rango de fechas. |
+| `FrmBitacora` | Historial de acciones críticas del sistema (login, check-in, check-out, facturación). Solo accesible para el rol Administrador. |
+
+## Flujo de uso típico
+
+1. Iniciar sesión (`admin` / `Admin123`, o `recepcion1` / `Recepcion123`).
+2. Desde el Dashboard, crear una habitación si hace falta (menú Habitaciones).
+3. Registrar un huésped (menú Huéspedes).
+4. Crear una reserva para ese huésped, en una habitación Disponible (menú Reservas), y confirmarla.
+5. Hacer check-in de esa reserva (menú Check-in / Check-out) — la habitación pasa a Ocupada.
+6. Hacer check-out — se genera la factura con NCF, y la habitación pasa a Limpieza.
+7. Consultar los reportes de ocupación e ingresos (menú Reportes).
+8. Si el usuario logueado es Administrador, consultar la bitácora de acciones (menú Bitácora).
+
+## Estructura del proyecto
+
+```
+HotelZormat/           → Capa de presentación (formularios WinForms)
+Hotel.Negocio_/         → Capa de negocio: Servicios, Repositorios (DaL) y Modelos
+Hotel.Datos_/            → Configuración centralizada de la conexión a la base de datos
+script_bd.sql            → Script completo de creación de la base de datos
+```
+
+## Notas técnicas
+
+- Todas las consultas SQL usan parámetros (`@nombre` con `AddWithValue`), sin concatenación de strings.
+- Se usa una excepción personalizada (`HabitacionException`) para el manejo de habitaciones ocupadas.
+- La facturación aplica ITBIS 18% y propina legal 10%, con numeración secuencial de NCF (tipo Consumo Final).
+- Los valores de estado (`Disponible`, `Ocupada`, `Pendiente`, etc.) y los colores de la interfaz están
+  centralizados en `Constantes.cs` (capa de Negocio) y `ColoresApp.cs` (capa de UI), para evitar
+  inconsistencias de texto entre la interfaz y la base de datos.
