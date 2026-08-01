@@ -9,6 +9,12 @@ namespace HotelZormat
 {
     public partial class FrmReporte : Form
     {
+        // TODO: antes de dar este formulario por terminado, confirma que los
+        // nombres de los controles en tu Designer.cs coincidan EXACTO (mayúsculas
+        // incluidas) con los usados aquí: lstOcupacion, btnActualizarOcupacion,
+        // dtpDesde, dtpHasta, btnCalcularIngresos, lblIngresoTotal. Y que los
+        // eventos (Load, Click) estén conectados con "+=" en el Designer, no
+        // solo declarados como método suelto (ya nos pasó con otros formularios).
         private ReporteService reporteService = new ReporteService();
 
         public FrmReporte()
@@ -56,9 +62,18 @@ namespace HotelZormat
 
                 if (ocupacion.Count == 0)
                 {
+                    // TODO: este MessageBox aparece cada vez que se abre el formulario
+                    // (FrmReporte_Load también llama a este método) y no solo cuando
+                    // el usuario pide el reporte a propósito. Si molesta en las pruebas,
+                    // considerar mostrar el aviso solo dentro de btnActualizarOcupacion_Click,
+                    // y en el Load simplemente dejar la lista vacía sin popup.
                     MessageBox.Show("No hay habitaciones ocupadas en este momento.", "Ocupación del día",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (SqlException)
             {
@@ -83,6 +98,11 @@ namespace HotelZormat
             {
                 decimal total = reporteService.ObtenerIngresosPorRango(dtpDesde.Value.Date, dtpHasta.Value.Date);
                 lblIngresoTotal.Text = "RD$ " + total.ToString("N2");
+
+                // TODO: si el total da RD$ 0.00, actualmente no se distingue entre
+                // "no hubo facturas en ese rango" (caso normal) y un posible error
+                // silencioso. Si se quiere ser más explícito con el usuario, se podría
+                // agregar un mensaje aparte cuando total == 0.
             }
             catch (FormatException ex)
             {

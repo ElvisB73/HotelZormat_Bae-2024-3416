@@ -18,6 +18,7 @@ namespace HotelZormat
 
         private void FrmCheckInOut_Load(object sender, EventArgs e)
         {
+
             lstReservasConfirmadas.View = View.Details;
             lstReservasConfirmadas.Columns.Clear();
             lstReservasConfirmadas.Columns.Add("Hab.", 60);

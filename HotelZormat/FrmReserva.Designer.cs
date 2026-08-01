@@ -59,9 +59,10 @@
             this.btnCrearReserva.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCrearReserva.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCrearReserva.ForeColor = System.Drawing.Color.White;
-            this.btnCrearReserva.Location = new System.Drawing.Point(26, 393);
+            this.btnCrearReserva.Location = new System.Drawing.Point(39, 605);
+            this.btnCrearReserva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCrearReserva.Name = "btnCrearReserva";
-            this.btnCrearReserva.Size = new System.Drawing.Size(180, 45);
+            this.btnCrearReserva.Size = new System.Drawing.Size(270, 69);
             this.btnCrearReserva.TabIndex = 0;
             this.btnCrearReserva.Text = "Reservar";
             this.btnCrearReserva.Click += new System.EventHandler(this.btnCrearReserva_Click);
@@ -69,9 +70,10 @@
             // lblHabitacion
             // 
             this.lblHabitacion.AutoSize = true;
-            this.lblHabitacion.Location = new System.Drawing.Point(27, 55);
+            this.lblHabitacion.Location = new System.Drawing.Point(40, 85);
+            this.lblHabitacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHabitacion.Name = "lblHabitacion";
-            this.lblHabitacion.Size = new System.Drawing.Size(58, 13);
+            this.lblHabitacion.Size = new System.Drawing.Size(85, 20);
             this.lblHabitacion.TabIndex = 1;
             this.lblHabitacion.Text = "Habitacion";
             // 
@@ -86,9 +88,10 @@
             this.cbohabitacion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbohabitacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbohabitacion.ItemHeight = 30;
-            this.cbohabitacion.Location = new System.Drawing.Point(26, 71);
+            this.cbohabitacion.Location = new System.Drawing.Point(39, 109);
+            this.cbohabitacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbohabitacion.Name = "cbohabitacion";
-            this.cbohabitacion.Size = new System.Drawing.Size(140, 36);
+            this.cbohabitacion.Size = new System.Drawing.Size(208, 36);
             this.cbohabitacion.TabIndex = 2;
             this.cbohabitacion.SelectedIndexChanged += new System.EventHandler(this.cbohabitacion_SelectedIndexChanged);
             // 
@@ -104,11 +107,12 @@
             this.txtBuscarHuesped.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBuscarHuesped.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBuscarHuesped.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBuscarHuesped.Location = new System.Drawing.Point(26, 144);
+            this.txtBuscarHuesped.Location = new System.Drawing.Point(39, 222);
+            this.txtBuscarHuesped.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.txtBuscarHuesped.Name = "txtBuscarHuesped";
             this.txtBuscarHuesped.PlaceholderText = "";
             this.txtBuscarHuesped.SelectedText = "";
-            this.txtBuscarHuesped.Size = new System.Drawing.Size(200, 36);
+            this.txtBuscarHuesped.Size = new System.Drawing.Size(300, 55);
             this.txtBuscarHuesped.TabIndex = 3;
             // 
             // cboTemporada
@@ -122,45 +126,50 @@
             this.cboTemporada.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboTemporada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboTemporada.ItemHeight = 30;
-            this.cboTemporada.Location = new System.Drawing.Point(27, 322);
+            this.cboTemporada.Location = new System.Drawing.Point(40, 495);
+            this.cboTemporada.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboTemporada.Name = "cboTemporada";
-            this.cboTemporada.Size = new System.Drawing.Size(200, 36);
+            this.cboTemporada.Size = new System.Drawing.Size(298, 36);
             this.cboTemporada.TabIndex = 4;
             this.cboTemporada.SelectedIndexChanged += new System.EventHandler(this.cboTemporada_SelectedIndexChanged);
             // 
             // lblCheckin
             // 
             this.lblCheckin.AutoSize = true;
-            this.lblCheckin.Location = new System.Drawing.Point(36, 212);
+            this.lblCheckin.Location = new System.Drawing.Point(54, 326);
+            this.lblCheckin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCheckin.Name = "lblCheckin";
-            this.lblCheckin.Size = new System.Drawing.Size(49, 13);
+            this.lblCheckin.Size = new System.Drawing.Size(71, 20);
             this.lblCheckin.TabIndex = 7;
             this.lblCheckin.Text = "Check-in";
             // 
             // lblCheckOut
             // 
             this.lblCheckOut.AutoSize = true;
-            this.lblCheckOut.Location = new System.Drawing.Point(28, 258);
+            this.lblCheckOut.Location = new System.Drawing.Point(42, 397);
+            this.lblCheckOut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCheckOut.Name = "lblCheckOut";
-            this.lblCheckOut.Size = new System.Drawing.Size(58, 13);
+            this.lblCheckOut.Size = new System.Drawing.Size(85, 20);
             this.lblCheckOut.TabIndex = 8;
             this.lblCheckOut.Text = "Check-Out";
             // 
             // lblhuesped
             // 
             this.lblhuesped.AutoSize = true;
-            this.lblhuesped.Location = new System.Drawing.Point(23, 128);
+            this.lblhuesped.Location = new System.Drawing.Point(34, 197);
+            this.lblhuesped.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblhuesped.Name = "lblhuesped";
-            this.lblhuesped.Size = new System.Drawing.Size(150, 13);
+            this.lblhuesped.Size = new System.Drawing.Size(224, 20);
             this.lblhuesped.TabIndex = 9;
             this.lblhuesped.Text = "Huesped (cedula o pasaporte)";
             // 
             // lblNoches
             // 
             this.lblNoches.AutoSize = true;
-            this.lblNoches.Location = new System.Drawing.Point(39, 371);
+            this.lblNoches.Location = new System.Drawing.Point(58, 571);
+            this.lblNoches.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNoches.Name = "lblNoches";
-            this.lblNoches.Size = new System.Drawing.Size(47, 13);
+            this.lblNoches.Size = new System.Drawing.Size(67, 20);
             this.lblNoches.TabIndex = 10;
             this.lblNoches.Text = "Noches:";
             this.lblNoches.Click += new System.EventHandler(this.label5_Click);
@@ -168,9 +177,10 @@
             // lblTemporada
             // 
             this.lblTemporada.AutoSize = true;
-            this.lblTemporada.Location = new System.Drawing.Point(24, 306);
+            this.lblTemporada.Location = new System.Drawing.Point(36, 471);
+            this.lblTemporada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemporada.Name = "lblTemporada";
-            this.lblTemporada.Size = new System.Drawing.Size(61, 13);
+            this.lblTemporada.Size = new System.Drawing.Size(90, 20);
             this.lblTemporada.TabIndex = 11;
             this.lblTemporada.Text = "Temporada";
             // 
@@ -184,9 +194,10 @@
             this.lblCancelar.FillColor = System.Drawing.Color.Red;
             this.lblCancelar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblCancelar.ForeColor = System.Drawing.Color.White;
-            this.lblCancelar.Location = new System.Drawing.Point(591, 196);
+            this.lblCancelar.Location = new System.Drawing.Point(886, 302);
+            this.lblCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblCancelar.Name = "lblCancelar";
-            this.lblCancelar.Size = new System.Drawing.Size(180, 45);
+            this.lblCancelar.Size = new System.Drawing.Size(270, 69);
             this.lblCancelar.TabIndex = 12;
             this.lblCancelar.Text = "Cancelar";
             this.lblCancelar.Click += new System.EventHandler(this.lblCancelar_Click);
@@ -200,9 +211,10 @@
             this.btnConfirmar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(346, 196);
+            this.btnConfirmar.Location = new System.Drawing.Point(519, 302);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(180, 45);
+            this.btnConfirmar.Size = new System.Drawing.Size(270, 69);
             this.btnConfirmar.TabIndex = 13;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
@@ -216,9 +228,10 @@
             this.btnBuscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(253, 144);
+            this.btnBuscar.Location = new System.Drawing.Point(380, 222);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(95, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(142, 38);
             this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -229,10 +242,11 @@
             this.lstReservasProximas.FullRowSelect = true;
             this.lstReservasProximas.GridLines = true;
             this.lstReservasProximas.HideSelection = false;
-            this.lstReservasProximas.Location = new System.Drawing.Point(389, 40);
+            this.lstReservasProximas.Location = new System.Drawing.Point(584, 62);
+            this.lstReservasProximas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstReservasProximas.Name = "lstReservasProximas";
             this.lstReservasProximas.ShowItemToolTips = true;
-            this.lstReservasProximas.Size = new System.Drawing.Size(400, 140);
+            this.lstReservasProximas.Size = new System.Drawing.Size(598, 213);
             this.lstReservasProximas.TabIndex = 15;
             this.lstReservasProximas.UseCompatibleStateImageBehavior = false;
             this.lstReservasProximas.View = System.Windows.Forms.View.Details;
@@ -240,18 +254,20 @@
             // lblReserva
             // 
             this.lblReserva.AutoSize = true;
-            this.lblReserva.Location = new System.Drawing.Point(386, 24);
+            this.lblReserva.Location = new System.Drawing.Point(579, 37);
+            this.lblReserva.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblReserva.Name = "lblReserva";
-            this.lblReserva.Size = new System.Drawing.Size(82, 13);
+            this.lblReserva.Size = new System.Drawing.Size(122, 20);
             this.lblReserva.TabIndex = 16;
             this.lblReserva.Text = "Proximos 7 Dias";
             // 
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
-            this.lblMonto.Location = new System.Drawing.Point(156, 371);
+            this.lblMonto.Location = new System.Drawing.Point(234, 571);
+            this.lblMonto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(40, 13);
+            this.lblMonto.Size = new System.Drawing.Size(58, 20);
             this.lblMonto.TabIndex = 17;
             this.lblMonto.Text = "Monto:";
             // 
@@ -261,11 +277,12 @@
             this.dtpCheckIn.Checked = true;
             this.dtpCheckIn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpCheckIn.Location = new System.Drawing.Point(27, 230);
+            this.dtpCheckIn.Location = new System.Drawing.Point(40, 354);
+            this.dtpCheckIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpCheckIn.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpCheckIn.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpCheckIn.Name = "dtpCheckIn";
-            this.dtpCheckIn.Size = new System.Drawing.Size(194, 25);
+            this.dtpCheckIn.Size = new System.Drawing.Size(291, 38);
             this.dtpCheckIn.TabIndex = 18;
             this.dtpCheckIn.Value = new System.DateTime(2026, 7, 31, 15, 41, 57, 902);
             this.dtpCheckIn.ValueChanged += new System.EventHandler(this.dtpCheckIn_ValueChanged);
@@ -276,11 +293,12 @@
             this.dtpCheckOut.Checked = true;
             this.dtpCheckOut.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpCheckOut.Location = new System.Drawing.Point(27, 278);
+            this.dtpCheckOut.Location = new System.Drawing.Point(40, 428);
+            this.dtpCheckOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpCheckOut.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpCheckOut.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpCheckOut.Name = "dtpCheckOut";
-            this.dtpCheckOut.Size = new System.Drawing.Size(194, 25);
+            this.dtpCheckOut.Size = new System.Drawing.Size(291, 38);
             this.dtpCheckOut.TabIndex = 19;
             this.dtpCheckOut.Value = new System.DateTime(2026, 7, 31, 15, 41, 57, 902);
             this.dtpCheckOut.ValueChanged += new System.EventHandler(this.dtpCheckOut_ValueChanged);
@@ -289,26 +307,28 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(23, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(34, 14);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(136, 21);
+            this.lblTitulo.Size = new System.Drawing.Size(197, 31);
             this.lblTitulo.TabIndex = 20;
             this.lblTitulo.Text = "Nueva Reserva";
             // 
             // lblHuespedEncontrado
             // 
             this.lblHuespedEncontrado.AutoSize = true;
-            this.lblHuespedEncontrado.Location = new System.Drawing.Point(39, 183);
+            this.lblHuespedEncontrado.Location = new System.Drawing.Point(58, 282);
+            this.lblHuespedEncontrado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHuespedEncontrado.Name = "lblHuespedEncontrado";
-            this.lblHuespedEncontrado.Size = new System.Drawing.Size(0, 13);
+            this.lblHuespedEncontrado.Size = new System.Drawing.Size(0, 20);
             this.lblHuespedEncontrado.TabIndex = 21;
             this.lblHuespedEncontrado.Click += new System.EventHandler(this.label1_Click);
             // 
             // Frmreserva
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.lblHuespedEncontrado);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dtpCheckOut);
@@ -329,6 +349,8 @@
             this.Controls.Add(this.cbohabitacion);
             this.Controls.Add(this.lblHabitacion);
             this.Controls.Add(this.btnCrearReserva);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "Frmreserva";
             this.Text = "Frmreserva";
             this.Load += new System.EventHandler(this.Frmreserva_Load);

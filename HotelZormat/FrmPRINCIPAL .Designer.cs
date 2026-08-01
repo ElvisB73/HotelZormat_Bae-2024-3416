@@ -196,6 +196,7 @@ namespace HotelZormat
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblinicialsesion);
             this.Controls.Add(this.PnlLateral);
+            this.MaximizeBox = false;
             this.Name = "FrmPRINCIPAL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotel_Zormat";

@@ -36,9 +36,10 @@
             // lstBitacora
             // 
             this.lstBitacora.HideSelection = false;
-            this.lstBitacora.Location = new System.Drawing.Point(31, 58);
+            this.lstBitacora.Location = new System.Drawing.Point(46, 89);
+            this.lstBitacora.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstBitacora.Name = "lstBitacora";
-            this.lstBitacora.Size = new System.Drawing.Size(738, 313);
+            this.lstBitacora.Size = new System.Drawing.Size(1105, 479);
             this.lstBitacora.TabIndex = 0;
             this.lstBitacora.UseCompatibleStateImageBehavior = false;
             // 
@@ -50,9 +51,10 @@
             this.btnAtualizar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAtualizar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Location = new System.Drawing.Point(31, 393);
+            this.btnAtualizar.Location = new System.Drawing.Point(46, 605);
+            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(180, 45);
+            this.btnAtualizar.Size = new System.Drawing.Size(270, 69);
             this.btnAtualizar.TabIndex = 1;
             this.btnAtualizar.Text = "Atualizar";
             // 
@@ -60,20 +62,24 @@
             // 
             this.lblAcciones.BackColor = System.Drawing.Color.Transparent;
             this.lblAcciones.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAcciones.Location = new System.Drawing.Point(31, 12);
+            this.lblAcciones.Location = new System.Drawing.Point(46, 18);
+            this.lblAcciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblAcciones.Name = "lblAcciones";
-            this.lblAcciones.Size = new System.Drawing.Size(188, 23);
+            this.lblAcciones.Size = new System.Drawing.Size(271, 33);
             this.lblAcciones.TabIndex = 2;
             this.lblAcciones.Text = "Registro De Acciones";
             // 
             // FrmBitacora
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.lblAcciones);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.lstBitacora);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmBitacora";
             this.Text = "FrmBitacora";
             this.Load += new System.EventHandler(this.FrmBitacora_Load);
