@@ -203,6 +203,12 @@ namespace HotelZormat
             FrmReporte frm = new FrmReporte();
             frm.Show();
         }
+
+        private void btnMenuBitacora_Click(object sender, EventArgs e)
+        {
+            FrmBitacora frm = new FrmBitacora();
+            frm.Show();
+        }
     }
     
 }

@@ -180,6 +180,7 @@
             this.btnMenuBitacora.Size = new System.Drawing.Size(200, 49);
             this.btnMenuBitacora.TabIndex = 6;
             this.btnMenuBitacora.Text = "Bitacora";
+            this.btnMenuBitacora.Click += new System.EventHandler(this.btnMenuBitacora_Click);
             // 
             // lblUsuarioActual
             // 
