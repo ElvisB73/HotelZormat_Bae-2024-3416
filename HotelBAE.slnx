@@ -1,5 +1,4 @@
 <Solution>
-  <Project Path="AplicaciondeConsola/HotelZormat.testes.csproj" Id="5df23825-5856-432e-bfbc-ccc81f69248d" />
   <Project Path="Hotel.Datos_/Hotel.Datos.csproj" Id="91fbcad5-08a2-4c32-81d9-59245d89cc57" />
   <Project Path="Hotel.Negocio_/Hotel.Negocio.csproj" Id="8e57accf-ad25-4777-9aaf-80e5f1cb4131" />
   <Project Path="HotelZormat/Hotel.UI.csproj" Id="ea692c8a-b867-4d5f-972c-cd890b5e1a45" />
