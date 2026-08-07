@@ -39,25 +39,84 @@
             this.lblIngresosPorDias = new System.Windows.Forms.Label();
             this.btnAtualizarOcupacion = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
-            // 
-            // btnCalcularIngresos
-            // 
-            this.btnCalcularIngresos.BorderRadius = 10;
-            this.btnCalcularIngresos.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCalcularIngresos.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCalcularIngresos.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCalcularIngresos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCalcularIngresos.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCalcularIngresos.ForeColor = System.Drawing.Color.White;
-            this.btnCalcularIngresos.Location = new System.Drawing.Point(511, 301);
-            this.btnCalcularIngresos.Name = "btnCalcularIngresos";
-            this.btnCalcularIngresos.Size = new System.Drawing.Size(180, 36);
-            this.btnCalcularIngresos.TabIndex = 0;
-            this.btnCalcularIngresos.Text = "Calcular";
-            this.btnCalcularIngresos.Click += new System.EventHandler(this.btnCalcularIngresos_Click);
-            // 
+            //
+            // lblTitulo
+            //
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
+            this.lblTitulo.Location = new System.Drawing.Point(25, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(170, 21);
+            this.lblTitulo.TabIndex = 3;
+            this.lblTitulo.Text = "Ocupacion del Dia";
+            //
+            // lstOcupacion
+            //
+            this.lstOcupacion.BackColor = System.Drawing.Color.White;
+            this.lstOcupacion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lstOcupacion.FullRowSelect = true;
+            this.lstOcupacion.GridLines = true;
+            this.lstOcupacion.HideSelection = false;
+            this.lstOcupacion.Location = new System.Drawing.Point(28, 34);
+            this.lstOcupacion.Name = "lstOcupacion";
+            this.lstOcupacion.Size = new System.Drawing.Size(715, 129);
+            this.lstOcupacion.TabIndex = 4;
+            this.lstOcupacion.UseCompatibleStateImageBehavior = false;
+            //
+            // btnAtualizarOcupacion
+            //
+            this.btnAtualizarOcupacion.BorderRadius = 10;
+            this.btnAtualizarOcupacion.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAtualizarOcupacion.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAtualizarOcupacion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAtualizarOcupacion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAtualizarOcupacion.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
+            this.btnAtualizarOcupacion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAtualizarOcupacion.ForeColor = System.Drawing.Color.White;
+            this.btnAtualizarOcupacion.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(145)))), ((int)(((byte)(195)))));
+            this.btnAtualizarOcupacion.Location = new System.Drawing.Point(30, 180);
+            this.btnAtualizarOcupacion.Name = "btnAtualizarOcupacion";
+            this.btnAtualizarOcupacion.Size = new System.Drawing.Size(180, 45);
+            this.btnAtualizarOcupacion.TabIndex = 9;
+            this.btnAtualizarOcupacion.Text = "Actualizar";
+            this.btnAtualizarOcupacion.Click += new System.EventHandler(this.btnActualizarOcupacion_Click);
+            //
+            // lblIngresosPorDias
+            //
+            this.lblIngresosPorDias.AutoSize = true;
+            this.lblIngresosPorDias.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresosPorDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
+            this.lblIngresosPorDias.Location = new System.Drawing.Point(26, 246);
+            this.lblIngresosPorDias.Name = "lblIngresosPorDias";
+            this.lblIngresosPorDias.Size = new System.Drawing.Size(262, 21);
+            this.lblIngresosPorDias.TabIndex = 8;
+            this.lblIngresosPorDias.Text = "Ingresos Por rango De Fecha";
+            //
+            // lblDesde
+            //
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
+            this.lblDesde.Location = new System.Drawing.Point(27, 285);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(41, 13);
+            this.lblDesde.TabIndex = 6;
+            this.lblDesde.Text = "Desde:";
+            //
+            // lblHasta
+            //
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
+            this.lblHasta.Location = new System.Drawing.Point(270, 285);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(38, 13);
+            this.lblHasta.TabIndex = 7;
+            this.lblHasta.Text = "Hasta:";
+            //
             // dtpDesde
-            // 
+            //
             this.dtpDesde.BorderRadius = 10;
             this.dtpDesde.Checked = true;
             this.dtpDesde.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -69,9 +128,9 @@
             this.dtpDesde.Size = new System.Drawing.Size(200, 36);
             this.dtpDesde.TabIndex = 1;
             this.dtpDesde.Value = new System.DateTime(2026, 7, 31, 16, 24, 18, 810);
-            // 
+            //
             // dtpHasta
-            // 
+            //
             this.dtpHasta.BorderRadius = 10;
             this.dtpHasta.Checked = true;
             this.dtpHasta.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -83,87 +142,41 @@
             this.dtpHasta.Size = new System.Drawing.Size(200, 36);
             this.dtpHasta.TabIndex = 2;
             this.dtpHasta.Value = new System.DateTime(2026, 7, 31, 16, 24, 18, 810);
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(25, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(170, 21);
-            this.lblTitulo.TabIndex = 3;
-            this.lblTitulo.Text = "Ocupacion del Dia";
-            // 
-            // lstOcupacion
-            // 
-            this.lstOcupacion.FullRowSelect = true;
-            this.lstOcupacion.GridLines = true;
-            this.lstOcupacion.HideSelection = false;
-            this.lstOcupacion.Location = new System.Drawing.Point(28, 34);
-            this.lstOcupacion.Name = "lstOcupacion";
-            this.lstOcupacion.Size = new System.Drawing.Size(715, 129);
-            this.lstOcupacion.TabIndex = 4;
-            this.lstOcupacion.UseCompatibleStateImageBehavior = false;
-            // 
+            //
+            // btnCalcularIngresos
+            //
+            this.btnCalcularIngresos.BorderRadius = 10;
+            this.btnCalcularIngresos.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCalcularIngresos.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCalcularIngresos.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCalcularIngresos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCalcularIngresos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
+            this.btnCalcularIngresos.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCalcularIngresos.ForeColor = System.Drawing.Color.White;
+            this.btnCalcularIngresos.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(145)))), ((int)(((byte)(195)))));
+            this.btnCalcularIngresos.Location = new System.Drawing.Point(511, 301);
+            this.btnCalcularIngresos.Name = "btnCalcularIngresos";
+            this.btnCalcularIngresos.Size = new System.Drawing.Size(180, 36);
+            this.btnCalcularIngresos.TabIndex = 0;
+            this.btnCalcularIngresos.Text = "Calcular";
+            this.btnCalcularIngresos.Click += new System.EventHandler(this.btnCalcularIngresos_Click);
+            //
             // lblIngresoTotal
-            // 
+            //
             this.lblIngresoTotal.AutoSize = true;
-            this.lblIngresoTotal.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresoTotal.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresoTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
             this.lblIngresoTotal.Location = new System.Drawing.Point(44, 372);
             this.lblIngresoTotal.Name = "lblIngresoTotal";
             this.lblIngresoTotal.Size = new System.Drawing.Size(180, 29);
             this.lblIngresoTotal.TabIndex = 5;
             this.lblIngresoTotal.Text = "Ingreso Total:";
-            // 
-            // lblDesde
-            // 
-            this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(27, 285);
-            this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(41, 13);
-            this.lblDesde.TabIndex = 6;
-            this.lblDesde.Text = "Desde:";
-            // 
-            // lblHasta
-            // 
-            this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(270, 285);
-            this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(38, 13);
-            this.lblHasta.TabIndex = 7;
-            this.lblHasta.Text = "Hasta:";
-            // 
-            // lblIngresosPorDias
-            // 
-            this.lblIngresosPorDias.AutoSize = true;
-            this.lblIngresosPorDias.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngresosPorDias.Location = new System.Drawing.Point(26, 246);
-            this.lblIngresosPorDias.Name = "lblIngresosPorDias";
-            this.lblIngresosPorDias.Size = new System.Drawing.Size(262, 21);
-            this.lblIngresosPorDias.TabIndex = 8;
-            this.lblIngresosPorDias.Text = "Ingresos Por rango De Fecha";
-            this.btnAtualizarOcupacion.Click += new System.EventHandler(this.btnActualizarOcupacion_Click);
-            // 
-            // btnAtualizarOcupacion
-            // 
-            this.btnAtualizarOcupacion.BorderRadius = 10;
-            this.btnAtualizarOcupacion.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAtualizarOcupacion.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAtualizarOcupacion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAtualizarOcupacion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAtualizarOcupacion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAtualizarOcupacion.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizarOcupacion.Location = new System.Drawing.Point(30, 180);
-            this.btnAtualizarOcupacion.Name = "btnAtualizarOcupacion";
-            this.btnAtualizarOcupacion.Size = new System.Drawing.Size(180, 45);
-            this.btnAtualizarOcupacion.TabIndex = 9;
-            this.btnAtualizarOcupacion.Text = "Actualizar";
-          //  this.btnAtualizarOcupacion.Click += new System.EventHandler(this.btnAtualizarOcupacion_Click);
-            // 
+            //
             // FrmReporte
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnAtualizarOcupacion);
             this.Controls.Add(this.lblIngresosPorDias);
