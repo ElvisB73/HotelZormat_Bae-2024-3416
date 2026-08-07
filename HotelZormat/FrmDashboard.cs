@@ -12,10 +12,7 @@ namespace HotelZormat
 {
     public partial class FrmDashboard : Form
     {
-        // TODO: confirma que los nombres de los controles del Designer coincidan
-        // exacto con los usados aquí: flpHabitaciones, flpLeyenda, lblUsuarioActual,
-        // btnMenuHabitaciones, btnMenuHuespedes, btnMenuReservas, btnMenuCheckInOut,
-        // btnMenuReportes, btnMenuBitacora, btnCerrarSesion.
+      
         private HabitacionService habitacionService = new HabitacionService();
 
         // Timer para el refresco automático del tablero, como pide la práctica.
@@ -50,7 +47,7 @@ namespace HotelZormat
         // ── Arma la leyenda de colores (un cuadrito + su significado) ──
         private void CargarLeyenda()
         {
-            //flpLeyenda.Controls.Clear();
+            flpLeyenda.Controls.Clear();
 
             AgregarItemLeyenda("Disponible", ObtenerColorPorEstado(EstadosHabitacion.Disponible));
             AgregarItemLeyenda("Ocupada", ObtenerColorPorEstado(EstadosHabitacion.Ocupada));
@@ -79,7 +76,7 @@ namespace HotelZormat
             contenedor.Controls.Add(cuadrito);
             contenedor.Controls.Add(etiqueta);
 
-           // flpLeyenda.Controls.Add(contenedor);
+            flpLeyenda.Controls.Add(contenedor);
         }
 
         // ── Refresco automático: cada 15 segundos se vuelve a consultar ──
@@ -130,7 +127,7 @@ namespace HotelZormat
         private Guna2Panel CrearTarjetaHabitacion(Habitacion habitacion)
         {
             Guna2Panel tarjeta = new Guna2Panel();
-            tarjeta.Size = new Size(110, 80);
+            tarjeta.Size = new Size(120, 100);
             tarjeta.Margin = new Padding(6);
             tarjeta.BorderRadius = 10;
             tarjeta.FillColor = ObtenerColorPorEstado(habitacion.Estado);
@@ -143,18 +140,43 @@ namespace HotelZormat
             lblNumero.AutoSize = false;
             lblNumero.TextAlign = ContentAlignment.MiddleCenter;
             lblNumero.Dock = DockStyle.Top;
-            lblNumero.Height = 45;
+            lblNumero.Height = 38;
             lblNumero.BackColor = Color.Transparent;
 
             Label lblTipo = new Label();
             lblTipo.Text = habitacion.Tipo;
             lblTipo.ForeColor = Color.White;
-            lblTipo.Font = new Font("Segoe UI", 8);
+            lblTipo.Font = new Font("Segoe UI", 8.5f, FontStyle.Bold);
             lblTipo.AutoSize = false;
             lblTipo.TextAlign = ContentAlignment.MiddleCenter;
-            lblTipo.Dock = DockStyle.Fill;
+            lblTipo.Dock = DockStyle.Top;
+            lblTipo.Height = 22;
             lblTipo.BackColor = Color.Transparent;
 
+            // Información adicional: piso y capacidad
+            Label lblDetalle = new Label();
+            lblDetalle.Text = "Piso " + habitacion.Piso + " · Cap. " + habitacion.Capacidad;
+            lblDetalle.ForeColor = Color.White;
+            lblDetalle.Font = new Font("Segoe UI", 7.5f);
+            lblDetalle.AutoSize = false;
+            lblDetalle.TextAlign = ContentAlignment.MiddleCenter;
+            lblDetalle.Dock = DockStyle.Top;
+            lblDetalle.Height = 18;
+            lblDetalle.BackColor = Color.Transparent;
+
+            // El estado en texto, no solo el color, para que sea accesible
+            // también para quien no distinga bien los colores
+            Label lblEstadoTexto = new Label();
+            lblEstadoTexto.Text = habitacion.Estado;
+            lblEstadoTexto.ForeColor = Color.White;
+            lblEstadoTexto.Font = new Font("Segoe UI", 7.5f, FontStyle.Italic);
+            lblEstadoTexto.AutoSize = false;
+            lblEstadoTexto.TextAlign = ContentAlignment.MiddleCenter;
+            lblEstadoTexto.Dock = DockStyle.Fill;
+            lblEstadoTexto.BackColor = Color.Transparent;
+
+            tarjeta.Controls.Add(lblEstadoTexto);
+            tarjeta.Controls.Add(lblDetalle);
             tarjeta.Controls.Add(lblTipo);
             tarjeta.Controls.Add(lblNumero);
 
@@ -162,6 +184,8 @@ namespace HotelZormat
             tarjeta.Click += (s, e) => AbrirGestionHabitacion(habitacion.Numero);
             lblNumero.Click += (s, e) => AbrirGestionHabitacion(habitacion.Numero);
             lblTipo.Click += (s, e) => AbrirGestionHabitacion(habitacion.Numero);
+            lblDetalle.Click += (s, e) => AbrirGestionHabitacion(habitacion.Numero);
+            lblEstadoTexto.Click += (s, e) => AbrirGestionHabitacion(habitacion.Numero);
 
             return tarjeta;
         }
@@ -269,11 +293,6 @@ namespace HotelZormat
                 FrmPRINCIPAL login = new FrmPRINCIPAL();
                 login.Show();
             }
-        }
-
-        private void flpHabitaciones_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

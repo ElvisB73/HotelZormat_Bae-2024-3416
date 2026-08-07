@@ -142,7 +142,7 @@
             this.lblIngresosPorDias.Size = new System.Drawing.Size(262, 21);
             this.lblIngresosPorDias.TabIndex = 8;
             this.lblIngresosPorDias.Text = "Ingresos Por rango De Fecha";
-          //  this.lblIngresosPorDias.Click += new System.EventHandler(this.label1_Click);
+            this.btnAtualizarOcupacion.Click += new System.EventHandler(this.btnActualizarOcupacion_Click);
             // 
             // btnAtualizarOcupacion
             // 
