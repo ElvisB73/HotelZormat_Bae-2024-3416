@@ -54,9 +54,9 @@
             this.lblCapacidad = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            //
+            // 
             // txtNumero
-            //
+            // 
             this.txtNumero.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNumero.DefaultText = "";
             this.txtNumero.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -66,16 +66,16 @@
             this.txtNumero.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
             this.txtNumero.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNumero.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
-            this.txtNumero.Location = new System.Drawing.Point(16, 132);
-            this.txtNumero.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtNumero.Location = new System.Drawing.Point(11, 86);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.PlaceholderText = "Numero";
             this.txtNumero.SelectedText = "";
-            this.txtNumero.Size = new System.Drawing.Size(440, 55);
+            this.txtNumero.Size = new System.Drawing.Size(293, 36);
             this.txtNumero.TabIndex = 0;
-            //
+            // 
             // cboTipo
-            //
+            // 
             this.cboTipo.BackColor = System.Drawing.Color.Transparent;
             this.cboTipo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -84,14 +84,13 @@
             this.cboTipo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboTipo.ItemHeight = 30;
-            this.cboTipo.Location = new System.Drawing.Point(16, 242);
-            this.cboTipo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboTipo.Location = new System.Drawing.Point(11, 157);
             this.cboTipo.Name = "cboTipo";
-            this.cboTipo.Size = new System.Drawing.Size(439, 36);
+            this.cboTipo.Size = new System.Drawing.Size(294, 36);
             this.cboTipo.TabIndex = 1;
-            //
+            // 
             // txtPiso
-            //
+            // 
             this.txtPiso.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPiso.DefaultText = "";
             this.txtPiso.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -101,16 +100,16 @@
             this.txtPiso.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
             this.txtPiso.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPiso.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
-            this.txtPiso.Location = new System.Drawing.Point(14, 322);
-            this.txtPiso.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtPiso.Location = new System.Drawing.Point(9, 209);
+            this.txtPiso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPiso.Name = "txtPiso";
             this.txtPiso.PlaceholderText = "";
             this.txtPiso.SelectedText = "";
-            this.txtPiso.Size = new System.Drawing.Size(196, 35);
+            this.txtPiso.Size = new System.Drawing.Size(131, 23);
             this.txtPiso.TabIndex = 2;
-            //
+            // 
             // txtCapacidad
-            //
+            // 
             this.txtCapacidad.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCapacidad.DefaultText = "";
             this.txtCapacidad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -120,16 +119,16 @@
             this.txtCapacidad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
             this.txtCapacidad.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCapacidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
-            this.txtCapacidad.Location = new System.Drawing.Point(234, 322);
-            this.txtCapacidad.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtCapacidad.Location = new System.Drawing.Point(156, 209);
+            this.txtCapacidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCapacidad.Name = "txtCapacidad";
             this.txtCapacidad.PlaceholderText = "";
             this.txtCapacidad.SelectedText = "";
-            this.txtCapacidad.Size = new System.Drawing.Size(234, 35);
+            this.txtCapacidad.Size = new System.Drawing.Size(156, 23);
             this.txtCapacidad.TabIndex = 3;
-            //
+            // 
             // txtTarifa
-            //
+            // 
             this.txtTarifa.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTarifa.DefaultText = "";
             this.txtTarifa.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -139,16 +138,16 @@
             this.txtTarifa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
             this.txtTarifa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTarifa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
-            this.txtTarifa.Location = new System.Drawing.Point(16, 398);
-            this.txtTarifa.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtTarifa.Location = new System.Drawing.Point(11, 259);
+            this.txtTarifa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTarifa.Name = "txtTarifa";
             this.txtTarifa.PlaceholderText = "";
             this.txtTarifa.SelectedText = "";
-            this.txtTarifa.Size = new System.Drawing.Size(452, 48);
+            this.txtTarifa.Size = new System.Drawing.Size(301, 31);
             this.txtTarifa.TabIndex = 4;
-            //
+            // 
             // cboEstado
-            //
+            // 
             this.cboEstado.BackColor = System.Drawing.Color.Transparent;
             this.cboEstado.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -157,14 +156,13 @@
             this.cboEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboEstado.ItemHeight = 30;
-            this.cboEstado.Location = new System.Drawing.Point(20, 498);
-            this.cboEstado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboEstado.Location = new System.Drawing.Point(13, 324);
             this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(448, 36);
+            this.cboEstado.Size = new System.Drawing.Size(300, 36);
             this.cboEstado.TabIndex = 5;
-            //
+            // 
             // btnNuevo
-            //
+            // 
             this.btnNuevo.BorderRadius = 10;
             this.btnNuevo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnNuevo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -174,15 +172,16 @@
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(145)))), ((int)(((byte)(195)))));
-            this.btnNuevo.Location = new System.Drawing.Point(42, 606);
+            this.btnNuevo.Location = new System.Drawing.Point(28, 394);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(180, 45);
+            this.btnNuevo.Size = new System.Drawing.Size(120, 29);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nueva";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            //
+            // 
             // btnGuardar
-            //
+            // 
             this.btnGuardar.BorderRadius = 10;
             this.btnGuardar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGuardar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -192,15 +191,16 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(145)))), ((int)(((byte)(195)))));
-            this.btnGuardar.Location = new System.Drawing.Point(249, 606);
+            this.btnGuardar.Location = new System.Drawing.Point(166, 394);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(180, 45);
+            this.btnGuardar.Size = new System.Drawing.Size(120, 29);
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            //
+            // 
             // btnEliminar
-            //
+            // 
             this.btnEliminar.BorderRadius = 10;
             this.btnEliminar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEliminar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -210,15 +210,16 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.btnEliminar.Location = new System.Drawing.Point(472, 606);
+            this.btnEliminar.Location = new System.Drawing.Point(315, 394);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(180, 45);
+            this.btnEliminar.Size = new System.Drawing.Size(120, 29);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            //
+            // 
             // cboFiltroPiso
-            //
+            // 
             this.cboFiltroPiso.BackColor = System.Drawing.Color.Transparent;
             this.cboFiltroPiso.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboFiltroPiso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -227,14 +228,13 @@
             this.cboFiltroPiso.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboFiltroPiso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboFiltroPiso.ItemHeight = 30;
-            this.cboFiltroPiso.Location = new System.Drawing.Point(500, 14);
-            this.cboFiltroPiso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboFiltroPiso.Location = new System.Drawing.Point(333, 9);
             this.cboFiltroPiso.Name = "cboFiltroPiso";
-            this.cboFiltroPiso.Size = new System.Drawing.Size(228, 36);
+            this.cboFiltroPiso.Size = new System.Drawing.Size(153, 36);
             this.cboFiltroPiso.TabIndex = 9;
-            //
+            // 
             // cboFiltroEstado
-            //
+            // 
             this.cboFiltroEstado.BackColor = System.Drawing.Color.Transparent;
             this.cboFiltroEstado.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboFiltroEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -243,14 +243,13 @@
             this.cboFiltroEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboFiltroEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboFiltroEstado.ItemHeight = 30;
-            this.cboFiltroEstado.Location = new System.Drawing.Point(734, 12);
-            this.cboFiltroEstado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboFiltroEstado.Location = new System.Drawing.Point(489, 8);
             this.cboFiltroEstado.Name = "cboFiltroEstado";
-            this.cboFiltroEstado.Size = new System.Drawing.Size(247, 36);
+            this.cboFiltroEstado.Size = new System.Drawing.Size(166, 36);
             this.cboFiltroEstado.TabIndex = 10;
-            //
+            // 
             // btnFiltrar
-            //
+            // 
             this.btnFiltrar.BorderRadius = 10;
             this.btnFiltrar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnFiltrar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -260,15 +259,16 @@
             this.btnFiltrar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnFiltrar.ForeColor = System.Drawing.Color.White;
             this.btnFiltrar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(145)))), ((int)(((byte)(195)))));
-            this.btnFiltrar.Location = new System.Drawing.Point(988, 12);
+            this.btnFiltrar.Location = new System.Drawing.Point(659, 8);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(180, 35);
+            this.btnFiltrar.Size = new System.Drawing.Size(120, 23);
             this.btnFiltrar.TabIndex = 11;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
-            //
+            // 
             // lstHabitaciones
-            //
+            // 
             this.lstHabitaciones.AllowDrop = true;
             this.lstHabitaciones.BackColor = System.Drawing.Color.White;
             this.lstHabitaciones.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -277,126 +277,137 @@
             this.Piso,
             this.Estado});
             this.lstHabitaciones.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lstHabitaciones.ForeColor = System.Drawing.Color.Black;
             this.lstHabitaciones.FullRowSelect = true;
             this.lstHabitaciones.GridLines = true;
             this.lstHabitaciones.HideSelection = false;
-            this.lstHabitaciones.Location = new System.Drawing.Point(500, 58);
+            this.lstHabitaciones.Location = new System.Drawing.Point(333, 38);
+            this.lstHabitaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstHabitaciones.Name = "lstHabitaciones";
-            this.lstHabitaciones.Size = new System.Drawing.Size(668, 335);
+            this.lstHabitaciones.Size = new System.Drawing.Size(447, 219);
             this.lstHabitaciones.TabIndex = 12;
             this.lstHabitaciones.UseCompatibleStateImageBehavior = false;
             this.lstHabitaciones.View = System.Windows.Forms.View.Details;
             this.lstHabitaciones.SelectedIndexChanged += new System.EventHandler(this.lstHabitaciones_SelectedIndexChanged);
-            //
+            // 
             // No
-            //
+            // 
             this.No.Text = "No.";
-            //
+            // 
             // Tipo
-            //
+            // 
             this.Tipo.Text = "Tipo";
             this.Tipo.Width = 120;
-            //
+            // 
             // Piso
-            //
+            // 
             this.Piso.Text = "Piso";
-            //
+            // 
             // Estado
-            //
+            // 
             this.Estado.Text = "Estado";
             this.Estado.Width = 120;
-            //
+            // 
             // lblNumero
-            //
+            // 
             this.lblNumero.AutoSize = true;
             this.lblNumero.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblNumero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
-            this.lblNumero.Location = new System.Drawing.Point(16, 105);
+            this.lblNumero.Location = new System.Drawing.Point(11, 68);
+            this.lblNumero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(65, 20);
+            this.lblNumero.Size = new System.Drawing.Size(51, 15);
             this.lblNumero.TabIndex = 13;
             this.lblNumero.Text = "Numero";
-            //
+            // 
             // lblTip
-            //
+            // 
             this.lblTip.AutoSize = true;
-            this.lblTip.Location = new System.Drawing.Point(96, 338);
+            this.lblTip.Location = new System.Drawing.Point(64, 220);
+            this.lblTip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTip.Name = "lblTip";
-            this.lblTip.Size = new System.Drawing.Size(0, 20);
+            this.lblTip.Size = new System.Drawing.Size(0, 13);
             this.lblTip.TabIndex = 14;
-            //
+            // 
             // lblTipo
-            //
+            // 
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
-            this.lblTipo.Location = new System.Drawing.Point(16, 215);
+            this.lblTipo.Location = new System.Drawing.Point(11, 140);
+            this.lblTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(39, 20);
+            this.lblTipo.Size = new System.Drawing.Size(30, 15);
             this.lblTipo.TabIndex = 15;
             this.lblTipo.Text = "Tipo";
-            //
+            // 
             // lblPiso
-            //
+            // 
             this.lblPiso.AutoSize = true;
             this.lblPiso.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblPiso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
-            this.lblPiso.Location = new System.Drawing.Point(12, 297);
+            this.lblPiso.Location = new System.Drawing.Point(8, 193);
+            this.lblPiso.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPiso.Name = "lblPiso";
-            this.lblPiso.Size = new System.Drawing.Size(39, 20);
+            this.lblPiso.Size = new System.Drawing.Size(29, 15);
             this.lblPiso.TabIndex = 16;
             this.lblPiso.Text = "Piso";
-            //
+            // 
             // lblTarifa
-            //
+            // 
             this.lblTarifa.AutoSize = true;
             this.lblTarifa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblTarifa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
-            this.lblTarifa.Location = new System.Drawing.Point(21, 372);
+            this.lblTarifa.Location = new System.Drawing.Point(14, 242);
+            this.lblTarifa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTarifa.Name = "lblTarifa";
-            this.lblTarifa.Size = new System.Drawing.Size(49, 20);
+            this.lblTarifa.Size = new System.Drawing.Size(35, 15);
             this.lblTarifa.TabIndex = 17;
             this.lblTarifa.Text = "Tarifa";
-            //
+            // 
             // lblEstado
-            //
+            // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
-            this.lblEstado.Location = new System.Drawing.Point(21, 474);
+            this.lblEstado.Location = new System.Drawing.Point(14, 308);
+            this.lblEstado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(60, 20);
+            this.lblEstado.Size = new System.Drawing.Size(42, 15);
             this.lblEstado.TabIndex = 18;
             this.lblEstado.Text = "Estado";
-            //
+            // 
             // lblCapacidad
-            //
+            // 
             this.lblCapacidad.AutoSize = true;
             this.lblCapacidad.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblCapacidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
-            this.lblCapacidad.Location = new System.Drawing.Point(230, 297);
+            this.lblCapacidad.Location = new System.Drawing.Point(153, 193);
+            this.lblCapacidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCapacidad.Name = "lblCapacidad";
-            this.lblCapacidad.Size = new System.Drawing.Size(85, 20);
+            this.lblCapacidad.Size = new System.Drawing.Size(63, 15);
             this.lblCapacidad.TabIndex = 19;
             this.lblCapacidad.Text = "Capacidad";
-            //
+            // 
             // lblNombre
-            //
+            // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
-            this.lblNombre.Location = new System.Drawing.Point(32, 9);
+            this.lblNombre.Location = new System.Drawing.Point(21, 6);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(282, 39);
+            this.lblNombre.Size = new System.Drawing.Size(226, 30);
             this.lblNombre.TabIndex = 20;
             this.lblNombre.Text = "Datos De Habitacion";
-            //
+            // 
             // FrmHabitacionGestiion
-            //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lstHabitaciones);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCapacidad);
             this.Controls.Add(this.lblEstado);
@@ -405,7 +416,6 @@
             this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.lblTip);
             this.Controls.Add(this.lblNumero);
-            this.Controls.Add(this.lstHabitaciones);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.cboFiltroEstado);
             this.Controls.Add(this.cboFiltroPiso);
@@ -418,7 +428,6 @@
             this.Controls.Add(this.txtPiso);
             this.Controls.Add(this.cboTipo);
             this.Controls.Add(this.txtNumero);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmHabitacionGestiion";
             this.Text = "FrmHabitacionGestiion";

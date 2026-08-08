@@ -23,7 +23,7 @@ namespace HotelZormat
 
         private void FrmHabitacionGestiion_Load(object sender, EventArgs e)
         {
-          
+            this.BackColor = Color.FromArgb(251, 251, 254);
 
             // Se arman las columnas por código, para no depender de lo que
             // haya quedado configurado (o mal configurado) en el diseñador.
@@ -80,7 +80,7 @@ namespace HotelZormat
                     fila.SubItems.Add(habitacion.Estado);
 
                     // Pinta la fila completa según el estado de la habitación
-                   
+                    fila.BackColor = ObtenerColorPorEstado(habitacion.Estado);
                     fila.ForeColor = Color.White;
                     fila.UseItemStyleForSubItems = true;
 
@@ -262,6 +262,34 @@ namespace HotelZormat
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // ── Switch que decide el color de fondo según el estado ───────
+        // (mismo patrón que en FrmDashboard, sin depender de ninguna clase externa)
+        private Color ObtenerColorPorEstado(string estado)
+        {
+            Color color;
+
+            switch (estado)
+            {
+                case EstadosHabitacion.Disponible:
+                    color = Color.FromArgb(182, 215, 168); // verde pastel
+                    break;
+                case EstadosHabitacion.Ocupada:
+                    color = Color.FromArgb(234, 153, 153); // rojo pastel
+                    break;
+                case EstadosHabitacion.Reservada:
+                    color = Color.FromArgb(249, 203, 156); // naranja pastel
+                    break;
+                case EstadosHabitacion.Limpieza:
+                    color = Color.FromArgb(164, 194, 244); // azul pastel
+                    break;
+                default:
+                    color = Color.Gray;
+                    break;
+            }
+
+            return color;
         }
     }
 }
