@@ -7,15 +7,12 @@ using System.Collections.Generic;
 
 namespace HotelZormat.Negocio.Servicios
 {
-    /// <summary>
-    /// Servicio de validaciones y operaciones de negocio para Habitaciones.
-    /// La UI llama a este servicio, nunca al HabitacionDAL directamente.
-    /// </summary>
     public class HabitacionService
     {
         private HabitacionDAL habitacionDal = new HabitacionDAL();
 
-        // ── Valida los datos de una habitación antes de guardarla ────
+        // TODO: Método normal (de instancia). Usa 4 if independientes (Numero/Piso/Capacidad/Tarifa,
+        // no se pueden unir en switch porque cada uno valida una variable distinta) + 2 switch (Tipo y Estado).
         public void ValidarHabitacion(Habitacion habitacion)
         {
             if (habitacion == null)
@@ -43,24 +40,31 @@ namespace HotelZormat.Negocio.Servicios
                 throw new FormatException("La tarifa debe ser mayor a cero.");
             }
 
-            if (habitacion.Tipo != TiposHabitacion.Sencilla && habitacion.Tipo != TiposHabitacion.Doble
-                && habitacion.Tipo != TiposHabitacion.Suite)
+            switch (habitacion.Tipo)
             {
-                throw new FormatException("El tipo debe ser Sencilla, Doble o Suite.");
+                case TiposHabitacion.Sencilla:
+                case TiposHabitacion.Doble:
+                case TiposHabitacion.Suite:
+                    break; // tipo válido, no hace falta hacer nada
+
+                default:
+                    throw new FormatException("El tipo debe ser Sencilla, Doble o Suite.");
             }
 
-            bool estadoValido = habitacion.Estado == EstadosHabitacion.Disponible
-                || habitacion.Estado == EstadosHabitacion.Ocupada
-                || habitacion.Estado == EstadosHabitacion.Reservada
-                || habitacion.Estado == EstadosHabitacion.Limpieza;
-
-            if (!estadoValido)
+            switch (habitacion.Estado)
             {
-                throw new FormatException("El estado de la habitación no es válido.");
+                case EstadosHabitacion.Disponible:
+                case EstadosHabitacion.Ocupada:
+                case EstadosHabitacion.Reservada:
+                case EstadosHabitacion.Limpieza:
+                    break; // estado válido, no hace falta hacer nada
+
+                default:
+                    throw new FormatException("El estado de la habitación no es válido.");
             }
         }
 
-        // ── Crea una habitación nueva, validando antes de guardar ────
+        // TODO: Método normal (de instancia). Usa 1 if (guard clause) antes de guardar.
         public void Crear(Habitacion habitacion)
         {
             ValidarHabitacion(habitacion);
@@ -74,16 +78,14 @@ namespace HotelZormat.Negocio.Servicios
             habitacionDal.Insertar(habitacion);
         }
 
-        // ── Actualiza tipo, capacidad, tarifa y estado ────────────────
+        // TODO: Método normal (de instancia). Sin estructuras de control propias, delega a ValidarHabitacion y al DAL.
         public void Actualizar(Habitacion habitacion)
         {
             ValidarHabitacion(habitacion);
             habitacionDal.ActualizarCompleto(habitacion);
         }
 
-        // ── Elimina una habitación. Solo debería llamarse desde la UI ──
-        // cuando el rol es Administrador (esa validación de rol va en
-        // el formulario, aquí solo se valida que no esté ocupada).
+        // TODO: Método normal (de instancia). Usa 2 if (guard clauses).
         public void Eliminar(int numero)
         {
             Habitacion habitacion = habitacionDal.BuscarPorNumero(numero);
@@ -101,33 +103,37 @@ namespace HotelZormat.Negocio.Servicios
             habitacionDal.Eliminar(numero);
         }
 
-        // ── Cambia solo el estado, validando que sea uno de los 4 válidos ──
+        // TODO: Método normal (de instancia). Usa 1 switch (con 4 casos que caen en el mismo break) + 1 if.
         public void CambiarEstado(int numero, string nuevoEstado)
         {
-            bool estadoValido = nuevoEstado == EstadosHabitacion.Disponible
-                || nuevoEstado == EstadosHabitacion.Ocupada
-                || nuevoEstado == EstadosHabitacion.Reservada
-                || nuevoEstado == EstadosHabitacion.Limpieza;
-
-            if (!estadoValido)
+            switch (nuevoEstado)
             {
-                throw new FormatException("El estado indicado no es válido.");
+                case EstadosHabitacion.Disponible:
+                case EstadosHabitacion.Ocupada:
+                case EstadosHabitacion.Reservada:
+                case EstadosHabitacion.Limpieza:
+                    break; // estado válido, no hace falta hacer nada
+
+                default:
+                    throw new FormatException("El estado indicado no es válido.");
             }
 
             habitacionDal.ActualizarEstado(numero, nuevoEstado);
         }
 
-        // ── Consultas, delegadas directo al repositorio ───────────────
+        // TODO: Método normal (de instancia). Sin estructuras de control, solo delega al DAL.
         public List<Habitacion> ObtenerTodas()
         {
             return habitacionDal.ObtenerTodas();
         }
 
+        // TODO: Método normal (de instancia). Sin estructuras de control, solo delega al DAL.
         public List<Habitacion> ObtenerConFiltros(int? piso, string estado)
         {
             return habitacionDal.ObtenerConFiltros(piso, estado);
         }
 
+        // TODO: Método normal (de instancia). Sin estructuras de control, solo delega al DAL.
         public Habitacion BuscarPorNumero(int numero)
         {
             return habitacionDal.BuscarPorNumero(numero);

@@ -18,21 +18,14 @@ namespace HotelZormat
             InitializeComponent();
         }
 
-        // Nombre exacto que usa el Designer: "FrmPRINCIPAL_Load"
+       
         private void FrmPRINCIPAL_Load(object sender, EventArgs e)
         {
             lblmensaje.Text = "";
             txtContrasena.PasswordChar = '*';
         }
 
-        // El Designer conecta el evento Paint del panel a este método.
-        // Lo dejamos vacío, no necesitamos dibujar nada especial ahí.
-        //private void PnlLateral_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
-        //{
-        // }
-
-        // El Designer conecta el Click de este label a este método.
-        // Lo dejamos vacío, no hace falta que haga nada.
+     
         private void lblNombre_Click(object sender, EventArgs e)
         {
         }

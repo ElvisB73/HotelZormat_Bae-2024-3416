@@ -15,7 +15,7 @@ namespace Hotel.Negocio_.Modelo
 
         public string Estado { get; set; } // "Activa" o "Cerrada"
 
-        // Campos solo de lectura, llenados con JOIN para mostrar en la UI
+        // TODO: Campos solo de lectura, llenados con JOIN para mostrar en la UI
         public int NumeroHabitacion { get; set; }
         public string NombreHuesped { get; set; }
         public decimal TarifaHabitacion { get; set; }

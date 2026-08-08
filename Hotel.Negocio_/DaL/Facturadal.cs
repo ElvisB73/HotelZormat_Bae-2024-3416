@@ -8,16 +8,12 @@ namespace Hotel.Negocio_.DaL
 {
     public class FacturaDAL
     {
-        // Lee el connection string del App.config (nombre "HotelBae")
         private string connectionString =
             ConfigurationManager.ConnectionStrings["HotelBae"].ConnectionString;
 
-        private const string TIPO_NCF = "B02"; // Consumo Final
+        private const string TIPO_NCF = "B02";
 
-        // ── Genera el siguiente número de NCF y lo guarda ────────────
-        // Todo esto pasa dentro de UNA sola conexión/transacción para
-        // evitar que dos facturas terminen con el mismo número si dos
-        // usuarios facturan casi al mismo tiempo.
+        // TODO: Método normal (de instancia). Usa bloque using + try/catch (con Rollback si algo falla) + una transacción SQL.
         public string GenerarSiguienteNCF()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -27,8 +23,6 @@ namespace Hotel.Negocio_.DaL
 
                 try
                 {
-                    // Bloquea la fila mientras se lee, para que otra
-                    // factura no tome el mismo número al mismo tiempo.
                     string queryLeer = "SELECT UltimoNumero FROM NumeracionNCF WITH (UPDLOCK, ROWLOCK) " +
                                         "WHERE TipoNCF = @Tipo";
                     SqlCommand cmdLeer = new SqlCommand(queryLeer, con, transaccion);
@@ -45,7 +39,6 @@ namespace Hotel.Negocio_.DaL
 
                     transaccion.Commit();
 
-                    // Formato NCF: B02 + 10 dígitos con ceros a la izquierda
                     return TIPO_NCF + nuevoNumero.ToString("D10");
                 }
                 catch
@@ -56,7 +49,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Guarda la factura ya generada ─────────────────────────────
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public int Insertar(Factura factura)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -77,8 +70,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Suma los totales de facturas emitidas entre dos fechas ───
-        // Para el reporte de "Ingresos por rango de fecha".
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public decimal ObtenerIngresosPorRango(DateTime desde, DateTime hasta)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -87,7 +79,6 @@ namespace Hotel.Negocio_.DaL
                                 "WHERE FECHAEMISION BETWEEN @Desde AND @Hasta";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Desde", desde);
-                // se le suma 1 día para incluir todo el día "hasta" completo
                 cmd.Parameters.AddWithValue("@Hasta", hasta.AddDays(1).AddSeconds(-1));
                 con.Open();
 

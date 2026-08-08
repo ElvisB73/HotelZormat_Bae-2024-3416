@@ -9,15 +9,10 @@ namespace Hotel.Negocio_.DaL
 {
     public class ReservaDAL
     {
-        // Lee el connection string del App.config (nombre "HotelBae")
         private string connectionString =
             ConfigurationManager.ConnectionStrings["HotelBae"].ConnectionString;
 
-        // ── Crea una reserva nueva ────────────────────────────────────
-        // Nota: la validación de que FechaCheckOut sea mayor que
-        // FechaCheckIn, y el cálculo de TotalNoches/MontoTotal, se hacen
-        // en la capa de Negocio ANTES de llamar este método. Aquí solo
-        // se guarda lo que ya viene validado y calculado.
+        // TODO: Método normal (de instancia). Usa un bloque using (para cerrar la conexión automáticamente). Sin if/for/while.
         public int Insertar(Reserva reserva)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -26,7 +21,7 @@ namespace Hotel.Negocio_.DaL
                                 "TEMPORADA, TOTALNOCHES, MONTOTOTAL, ESTADO) " +
                                 "VALUES (@HabitacionId, @HuespedId, @FechaCheckIn, @FechaCheckOut, " +
                                 "@Temporada, @TotalNoches, @MontoTotal, @Estado); " +
-                                "SELECT SCOPE_IDENTITY();"; // devuelve el Id recién creado
+                                "SELECT SCOPE_IDENTITY();";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@HabitacionId", reserva.HabitacionId);
@@ -44,7 +39,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Busca una reserva por Id ──────────────────────────────────
+        // TODO: Método normal (de instancia). Usa bloque using + 1 if (reader.Read()) para saber si encontró algo.
         public Reserva BuscarPorId(int id)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -59,10 +54,10 @@ namespace Hotel.Negocio_.DaL
                     return MapearReserva(reader);
             }
 
-            return null; // No encontrada
+            return null;
         }
 
-        // ── Lista todas las reservas, más recientes primero ──────────
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) para recorrer todos los resultados.
         public List<Reserva> ObtenerTodas()
         {
             List<Reserva> lista = new List<Reserva>();
@@ -83,7 +78,7 @@ namespace Hotel.Negocio_.DaL
             return lista;
         }
 
-        // ── Lista las reservas cuyo check-in cae en los próximos 7 días ──
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) para recorrer todos los resultados.
         public List<Reserva> ObtenerProximas7Dias()
         {
             List<Reserva> lista = new List<Reserva>();
@@ -96,8 +91,6 @@ namespace Hotel.Negocio_.DaL
                                 " ORDER BY R.FECHACHECKIN ASC";
 
                 SqlCommand cmd = new SqlCommand(query, con);
-                // Se calculan las fechas en C# y se mandan como parámetros,
-                // no se usa GETDATE() directo para poder controlar la hora exacta.
                 cmd.Parameters.AddWithValue("@HoyInicio", DateTime.Today);
                 cmd.Parameters.AddWithValue("@HoyMasSiete", DateTime.Today.AddDays(7));
                 con.Open();
@@ -112,7 +105,7 @@ namespace Hotel.Negocio_.DaL
             return lista;
         }
 
-        // ── Cambia el estado de una reserva (Pendiente/Confirmada/Cancelada) ──
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public void CambiarEstado(int reservaId, string nuevoEstado)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -126,9 +119,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── SELECT base con JOIN a Habitaciones y Huespedes ──────────
-        // para poder mostrar el número de habitación y el nombre del
-        // huésped sin tener que hacer consultas aparte en la UI.
+        // TODO: Método normal PRIVADO (de instancia, solo se usa dentro de esta clase). Sin estructuras de control, solo retorna un string.
         private string ConsultaBaseConJoin()
         {
             return "SELECT R.RESERVAID, R.HABITACIONID, R.HUESPEDID, R.FECHACHECKIN, R.FECHACHECKOUT, " +
@@ -139,7 +130,7 @@ namespace Hotel.Negocio_.DaL
                    "INNER JOIN HUESPEDES HU ON R.HUESPEDID = HU.HUESPEDID";
         }
 
-        // ── Mapea un registro del reader a un objeto Reserva ─────────
+        // TODO: Método normal PRIVADO (de instancia, solo se usa dentro de esta clase). Sin estructuras de control, solo arma y retorna un objeto.
         private Reserva MapearReserva(SqlDataReader reader)
         {
             return new Reserva

@@ -9,11 +9,10 @@ namespace Hotel.Negocio_.DaL
 {
     public class HuespedDAL
     {
-        // Lee el connection string del App.config (nombre "HotelBae")
         private string connectionString =
             ConfigurationManager.ConnectionStrings["HotelBae"].ConnectionString;
 
-        // ── Trae todos los huéspedes ─────────────────────────────────
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) para recorrer todos los resultados.
         public List<Huesped> ObtenerTodos()
         {
             List<Huesped> lista = new List<Huesped>();
@@ -35,7 +34,7 @@ namespace Hotel.Negocio_.DaL
             return lista;
         }
 
-        // ── Busca un huésped por su Id ───────────────────────────────
+        // TODO: Método normal (de instancia). Usa bloque using + 1 if (reader.Read()) para saber si encontró algo.
         public Huesped BuscarPorId(int id)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -51,10 +50,10 @@ namespace Hotel.Negocio_.DaL
                     return MapearHuesped(reader);
             }
 
-            return null; // No encontrado
+            return null;
         }
 
-        // ── Busca por cédula o pasaporte exacto ──────────────────────
+        // TODO: Método normal (de instancia). Usa bloque using + 1 if (reader.Read()) para saber si encontró algo.
         public Huesped BuscarPorDocumento(string numeroDocumento)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -70,12 +69,10 @@ namespace Hotel.Negocio_.DaL
                     return MapearHuesped(reader);
             }
 
-            return null; // No encontrado
+            return null;
         }
 
-        // ── Busca por nombre o apellido (texto parcial) ──────────────
-        // Se usa para el buscador en la UI, cuando el usuario escribe
-        // solo una parte del nombre o apellido.
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) para recorrer todos los resultados.
         public List<Huesped> BuscarPorNombre(string texto)
         {
             List<Huesped> lista = new List<Huesped>();
@@ -87,7 +84,6 @@ namespace Hotel.Negocio_.DaL
                                 "WHERE NOMBRE LIKE @Texto OR APELLIDO LIKE @Texto " +
                                 "ORDER BY APELLIDO, NOMBRE";
                 SqlCommand cmd = new SqlCommand(query, con);
-                // El símbolo % va dentro del valor del parámetro, no concatenado en el query.
                 cmd.Parameters.AddWithValue("@Texto", "%" + texto + "%");
                 con.Open();
 
@@ -101,7 +97,7 @@ namespace Hotel.Negocio_.DaL
             return lista;
         }
 
-        // ── Crea un huésped nuevo ─────────────────────────────────────
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while (delega los parámetros a AgregarParametros).
         public void Insertar(Huesped huesped)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -116,7 +112,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Actualiza los datos de un huésped existente ──────────────
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while (delega los parámetros a AgregarParametros).
         public void Actualizar(Huesped huesped)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -133,7 +129,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Elimina un huésped por Id ─────────────────────────────────
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public void Eliminar(int id)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -146,9 +142,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Trae el historial de estadías de un huésped ──────────────
-        // Devuelve filas simples (número de habitación, fechas) para
-        // mostrarlas en un ListView o DataGridView en la UI.
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) + 1 operador ternario para CheckOut (puede venir nulo).
         public List<Dictionary<string, object>> ObtenerHistorialEstadias(int huespedId)
         {
             List<Dictionary<string, object>> historial = new List<Dictionary<string, object>>();
@@ -179,14 +173,13 @@ namespace Hotel.Negocio_.DaL
             return historial;
         }
 
-        // ── Agrega los parámetros comunes de Insertar y Actualizar ───
+        // TODO: Método normal PRIVADO (de instancia, solo se usa dentro de esta clase). Usa 3 operadores ternarios (uno por cada campo opcional).
         private void AgregarParametros(SqlCommand cmd, Huesped huesped)
         {
             cmd.Parameters.AddWithValue("@TipoDocumento", huesped.TipoDocumento);
             cmd.Parameters.AddWithValue("@NumeroDocumento", huesped.NumeroDocumento);
             cmd.Parameters.AddWithValue("@Nombre", huesped.Nombre);
             cmd.Parameters.AddWithValue("@Apellido", huesped.Apellido);
-            // Nacionalidad puede venir vacía, en ese caso guardamos DBNull en vez de string vacío
             cmd.Parameters.AddWithValue("@Nacionalidad",
                 string.IsNullOrEmpty(huesped.Nacionalidad) ? (object)DBNull.Value : huesped.Nacionalidad);
             cmd.Parameters.AddWithValue("@Telefono",
@@ -195,7 +188,7 @@ namespace Hotel.Negocio_.DaL
                 string.IsNullOrEmpty(huesped.Email) ? (object)DBNull.Value : huesped.Email);
         }
 
-        // ── Mapea un registro del reader a un objeto Huesped ─────────
+        // TODO: Método normal PRIVADO (de instancia, solo se usa dentro de esta clase). Usa 3 operadores ternarios (uno por cada campo opcional).
         private Huesped MapearHuesped(SqlDataReader reader)
         {
             return new Huesped

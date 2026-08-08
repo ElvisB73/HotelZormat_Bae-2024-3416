@@ -1,6 +1,7 @@
 ﻿// Cedula: 402444623662
 using Hotel.Negocio_.Modelo;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 
@@ -8,11 +9,10 @@ namespace Hotel.Negocio_.DaL
 {
     public class EstadiaDAL
     {
-        // Lee el connection string del App.config (nombre "HotelBae")
         private string connectionString =
             ConfigurationManager.ConnectionStrings["HotelBae"].ConnectionString;
 
-        // ── Crea la estadía cuando se hace el check-in real ──────────
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public int Insertar(Estadia estadia)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -31,7 +31,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Cierra la estadía cuando se hace el check-out ────────────
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public void Cerrar(int estadiaId, DateTime fechaCheckOutReal)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -46,8 +46,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Busca una estadía por Id, con los datos de habitación ────
-        // y huésped ya incluidos (JOIN), para no hacer consultas aparte.
+        // TODO: Método normal (de instancia). Usa bloque using + 1 if (reader.Read()) para saber si encontró algo.
         public Estadia BuscarPorId(int id)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -65,11 +64,10 @@ namespace Hotel.Negocio_.DaL
             return null;
         }
 
-        // ── Trae TODAS las estadías activas (todas las habitaciones ────
-        // ocupadas ahora mismo), para mostrarlas en la lista de check-out.
-        public System.Collections.Generic.List<Estadia> ObtenerTodasActivas()
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) para recorrer todos los resultados.
+        public List<Estadia> ObtenerTodasActivas()
         {
-            System.Collections.Generic.List<Estadia> lista = new System.Collections.Generic.List<Estadia>();
+            List<Estadia> lista = new List<Estadia>();
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -87,9 +85,7 @@ namespace Hotel.Negocio_.DaL
             return lista;
         }
 
-        // ── Busca la estadía activa de una habitación (si tiene) ─────
-        // Se usa al hacer check-out: primero hay que saber cuál es la
-        // estadía activa de esa habitación antes de poder cerrarla.
+        // TODO: Método normal (de instancia). Usa bloque using + 1 if (reader.Read()) para saber si encontró algo.
         public Estadia BuscarActivaPorHabitacion(int habitacionId)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -108,7 +104,7 @@ namespace Hotel.Negocio_.DaL
             return null;
         }
 
-        // ── SELECT base con JOIN a Habitaciones y Huespedes ──────────
+        // TODO: Método normal PRIVADO (de instancia, solo se usa dentro de esta clase). Sin estructuras de control, solo retorna un string.
         private string ConsultaBaseConJoin()
         {
             return "SELECT E.ESTADIAID, E.RESERVAID, E.HABITACIONID, E.HUESPEDID, " +
@@ -119,7 +115,7 @@ namespace Hotel.Negocio_.DaL
                    "INNER JOIN HUESPEDES HU ON E.HUESPEDID = HU.HUESPEDID";
         }
 
-        // ── Mapea un registro del reader a un objeto Estadia ─────────
+        // TODO: Método normal PRIVADO (de instancia, solo se usa dentro de esta clase). Usa 1 operador ternario (para FechaCheckOutReal, que puede ser nula).
         private Estadia MapearEstadia(SqlDataReader reader)
         {
             return new Estadia

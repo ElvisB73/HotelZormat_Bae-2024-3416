@@ -13,6 +13,7 @@ namespace Hotel.Negocio_.DaL
             ConfigurationManager.ConnectionStrings["HotelBae"].ConnectionString;
 
         // ── Registra una acción crítica: login, check-in, check-out, facturación ──
+        // TODO: Método normal (de instancia). Usa un bloque using + 1 operador ternario (para Detalle, que puede venir vacío).
         public void Registrar(int usuarioId, string accion, string detalle)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -31,6 +32,7 @@ namespace Hotel.Negocio_.DaL
 
         // ── Trae todo el historial, más reciente primero ──────────────
         // Solo la UI del rol Administrador debe llamar este método.
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) + 1 operador ternario (para Detalle, que puede venir vacío).
         public List<Dictionary<string, object>> ObtenerTodo()
         {
             List<Dictionary<string, object>> lista = new List<Dictionary<string, object>>();

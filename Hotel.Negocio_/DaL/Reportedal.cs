@@ -8,15 +8,10 @@ namespace Hotel.Negocio_.DaL
 {
     public class ReporteDAL
     {
-        // Lee el connection string del App.config (nombre "HotelBae")
         private string connectionString =
             ConfigurationManager.ConnectionStrings["HotelBae"].ConnectionString;
 
-        // ── Reporte: Ocupación del día ────────────────────────────────
-        // Lista las habitaciones actualmente ocupadas, junto con el
-        // nombre del huésped y desde cuándo está en la habitación.
-        // Se basa en la Estadia activa de cada habitación, no en la
-        // fecha de hoy, porque una estadía puede llevar varios días.
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) para recorrer todos los resultados.
         public List<Dictionary<string, object>> ObtenerOcupacionDelDia()
         {
             List<Dictionary<string, object>> lista = new List<Dictionary<string, object>>();

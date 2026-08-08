@@ -3,13 +3,10 @@ using Hotel.Negocio_;
 using Hotel.Negocio_.DaL;
 using Hotel.Negocio_.Modelo;
 using System;
+using System.Collections.Generic;
 
 namespace HotelZormat.Negocio.Servicios
 {
-    /// <summary>
-    /// Servicio que coordina el flujo de check-in, check-out y facturación.
-    /// La UI llama a este servicio, nunca toca los repositorios directo.
-    /// </summary>
     public class EstadiaService
     {
         private const decimal PORCENTAJE_ITBIS = 0.18m;
@@ -21,10 +18,10 @@ namespace HotelZormat.Negocio.Servicios
         private FacturaDAL facturaDal = new FacturaDAL();
         private BitacoraDAL bitacoraDal = new BitacoraDAL();
 
-        // ── Lista las reservas Confirmadas, listas para hacer check-in ──
-        public System.Collections.Generic.List<Reserva> ObtenerReservasConfirmadas()
+        // TODO: Método normal (de instancia). Usa 1 foreach con 1 if interno para filtrar la lista.
+        public List<Reserva> ObtenerReservasConfirmadas()
         {
-            System.Collections.Generic.List<Reserva> confirmadas = new System.Collections.Generic.List<Reserva>();
+            List<Reserva> confirmadas = new List<Reserva>();
 
             foreach (Reserva reserva in reservaDal.ObtenerTodas())
             {
@@ -37,14 +34,13 @@ namespace HotelZormat.Negocio.Servicios
             return confirmadas;
         }
 
-        // ── Lista todas las habitaciones ocupadas ahora mismo ─────────
-        public System.Collections.Generic.List<Estadia> ObtenerEstadiasActivas()
+        // TODO: Método normal (de instancia). Sin estructuras de control, solo delega al DAL.
+        public List<Estadia> ObtenerEstadiasActivas()
         {
             return estadiaDal.ObtenerTodasActivas();
         }
 
-        // ── Convierte una reserva confirmada en una estadía activa ────
-        // Cambia la habitación a Ocupada y registra la acción en bitácora.
+        // TODO: Método normal (de instancia). Usa 2 if (guard clauses) antes de crear la estadía.
         public int HacerCheckIn(int reservaId, int usuarioId)
         {
             Reserva reserva = reservaDal.BuscarPorId(reservaId);
@@ -76,9 +72,7 @@ namespace HotelZormat.Negocio.Servicios
             return estadiaId;
         }
 
-        // ── Cierra la estadía, genera la factura y libera la habitación ──
-        // Devuelve la factura generada, con todos los desgloses, para
-        // que la UI la muestre en pantalla.
+        // TODO: Método normal (de instancia). Usa 2 if (guard clauses) + Math.Max (método estático de la clase Math, no propio).
         public Factura HacerCheckOut(int habitacionNumero, int usuarioId)
         {
             Habitacion habitacion = habitacionDal.BuscarPorNumero(habitacionNumero);
@@ -96,7 +90,6 @@ namespace HotelZormat.Negocio.Servicios
             DateTime fechaCheckOut = DateTime.Now;
             estadiaDal.Cerrar(estadia.Id, fechaCheckOut);
 
-            // Se cobra por lo menos 1 noche, aunque el check-out sea el mismo día
             int noches = Math.Max(1, (fechaCheckOut.Date - estadia.FechaCheckInReal.Date).Days);
 
             decimal subtotal = estadia.TarifaHabitacion * noches;
@@ -119,7 +112,6 @@ namespace HotelZormat.Negocio.Servicios
 
             factura.Id = facturaDal.Insertar(factura);
 
-            // La habitación pasa a Limpieza, no directo a Disponible
             habitacionDal.ActualizarEstado(habitacionNumero, EstadosHabitacion.Limpieza);
 
             bitacoraDal.Registrar(usuarioId, "CheckOut",

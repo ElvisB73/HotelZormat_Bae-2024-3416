@@ -9,15 +9,18 @@ using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 
+// TODO: revisar si System.Linq, System.Management.Instrumentation, System.Text y
+// System.Threading.Tasks realmente se usan en este archivo — a simple vista no se
+// ve ningún LINQ, StringBuilder, ni código async, así que podrían sobrar.
+
 namespace Hotel.Negocio_.DaL
 {
     public class HabitacionDAL
     {
-        // Lee el connection string del App.config (nombre "HotelBae")
         private string connectionString =
             ConfigurationManager.ConnectionStrings["HotelBae"].ConnectionString;
 
-        // ── Trae todas las habitaciones ──────────────────────────────
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) para recorrer todos los resultados.
         public List<Habitacion> ObtenerTodas()
         {
             List<Habitacion> lista = new List<Habitacion>();
@@ -38,7 +41,7 @@ namespace Hotel.Negocio_.DaL
             return lista;
         }
 
-        // ── Trae solo las habitaciones de un piso ───────────────────
+        // TODO: Método normal (de instancia). Usa bloque using + while (reader.Read()) para recorrer todos los resultados.
         public List<Habitacion> ObtenerPorPiso(int piso)
         {
             List<Habitacion> lista = new List<Habitacion>();
@@ -60,7 +63,7 @@ namespace Hotel.Negocio_.DaL
             return lista;
         }
 
-        // ── Busca una habitación por número ─────────────────────────
+        // TODO: Método normal (de instancia). Usa bloque using + 1 if (reader.Read()) para saber si encontró algo.
         public Habitacion BuscarPorNumero(int numero)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -75,19 +78,17 @@ namespace Hotel.Negocio_.DaL
                     return MapearHabitacion(reader);
             }
 
-            return null; // No encontrada
+            return null;
         }
 
-        // ── Lista con filtros opcionales por piso y por estado ───────
-        // Si piso es null, no filtra por piso. Si estado es null o vacío, no filtra por estado.
+        // TODO: Método normal (de instancia). Usa bloque using + 4 if independientes (piso.HasValue x2, estado no vacío x2,
+        // para armar el WHERE dinámico y luego agregar los parámetros) + while (reader.Read()).
         public List<Habitacion> ObtenerConFiltros(int? piso, string estado)
         {
             List<Habitacion> lista = new List<Habitacion>();
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                // Armamos el WHERE dinámicamente, pero siempre con parámetros,
-                // nunca concatenando el valor directo en el texto del query.
                 string query = "SELECT HABITACIONID, NUMERO, TIPO, PISO, ESTADO, CAPACIDAD, TARIFABASE " +
                                 "FROM HABITACIONES WHERE 1 = 1";
 
@@ -119,7 +120,7 @@ namespace Hotel.Negocio_.DaL
             return lista;
         }
 
-        // ── Actualiza el estado de una habitación ───────────────────
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public void ActualizarEstado(int numero, string nuevoEstado)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -133,7 +134,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Crea una habitación nueva ─────────────────────────────
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public void Insertar(Habitacion habitacion)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -152,8 +153,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Actualiza tipo, capacidad, tarifa y estado de una habitación ──
-        // (a diferencia de ActualizarEstado, que solo cambia el estado)
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public void ActualizarCompleto(Habitacion habitacion)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -171,7 +171,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Elimina una habitación por número ────────────────────────
+        // TODO: Método normal (de instancia). Usa un bloque using. Sin if/for/while.
         public void Eliminar(int numero)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -184,7 +184,7 @@ namespace Hotel.Negocio_.DaL
             }
         }
 
-        // ── Mapea un registro del reader a un objeto Habitacion ──────
+        // TODO: Método normal PRIVADO (de instancia, solo se usa dentro de esta clase). Sin estructuras de control, solo arma y retorna un objeto.
         private Habitacion MapearHabitacion(SqlDataReader reader)
         {
             return new Habitacion

@@ -5,22 +5,18 @@ using System.Collections.Generic;
 
 namespace HotelZormat.Negocio.Servicios
 {
-    /// <summary>
-    /// Servicio de reportes. La UI llama a este servicio, nunca a
-    /// ReporteDAL o FacturaDAL directamente.
-    /// </summary>
     public class ReporteService
     {
         private ReporteDAL reporteDal = new ReporteDAL();
         private FacturaDAL facturaDal = new FacturaDAL();
 
-        // ── Reporte 1: Ocupación del día ──────────────────────────────
+        // TODO: Método normal (de instancia). Sin estructuras de control, solo delega al DAL.
         public List<Dictionary<string, object>> ObtenerOcupacionDelDia()
         {
             return reporteDal.ObtenerOcupacionDelDia();
         }
 
-        // ── Reporte 2: Ingresos por rango de fecha ────────────────────
+        // TODO: Método normal (de instancia). Usa 1 if (guard clause) antes de delegar al DAL.
         public decimal ObtenerIngresosPorRango(DateTime desde, DateTime hasta)
         {
             if (hasta < desde)

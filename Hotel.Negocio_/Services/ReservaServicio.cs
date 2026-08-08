@@ -7,15 +7,12 @@ using System.Collections.Generic;
 
 namespace HotelZormat.Negocio.Servicios
 {
-    /// <summary>
-    /// Servicio de validaciones y cálculos del flujo de reservas.
-    /// Lab día 05 · ISW-123 · semana 02
-    /// /// </summary>
     public class ReservaService
     {
         private ReservaDAL reservaDal = new ReservaDAL();
         private HabitacionDAL habitacionDal = new HabitacionDAL();
 
+        // TODO: Método normal (de instancia), no estático ni virtual. Usa if / else anidado.
         public bool ValidarTipoHabitacion(string tipo)
         {
             if (string.IsNullOrWhiteSpace(tipo))
@@ -33,11 +30,7 @@ namespace HotelZormat.Negocio.Servicios
             }
         }
 
-        /// <summary>
-        /// Devuelve el factor a aplicar según la temporada.
-        /// Positivo = descuento, negativo = recarga.
-        /// Reto 02 · usa switch
-        /// /// </summary>
+        // TODO: Método normal (de instancia). Usa switch con 3 casos y un default.
         public decimal ObtenerDescuentoPorTemporada(string temporada)
         {
             decimal factor;
@@ -62,9 +55,8 @@ namespace HotelZormat.Negocio.Servicios
 
             return factor;
         }
-        // ── Valida que el check-out sea posterior al check-in ────────
-        // Lanza FormatException para que la UI lo atrape en su catch
-        // específico y muestre el mensaje con MessageBox.
+
+        // TODO: Método normal (de instancia). Usa 2 if independientes (no anidados).
         public void ValidarFechas(DateTime fechaCheckIn, DateTime fechaCheckOut)
         {
             if (fechaCheckOut <= fechaCheckIn)
@@ -78,14 +70,13 @@ namespace HotelZormat.Negocio.Servicios
             }
         }
 
-        // ── Calcula las noches entre dos fechas ──────────────────────
+        // TODO: Método normal (de instancia). Sin estructuras de control, solo un return con una operación aritmética.
         public int CalcularNoches(DateTime fechaCheckIn, DateTime fechaCheckOut)
         {
             return (fechaCheckOut - fechaCheckIn).Days;
         }
 
-        // ── Calcula el monto total de la reserva aplicando el ────────
-        // descuento de temporada sobre la tarifa base de la habitación.
+        // TODO: Método normal (de instancia). Sin estructuras de control, solo cálculos y una llamada a otro método.
         public decimal CalcularMontoTotal(decimal tarifaBase, int noches, string temporada)
         {
             decimal descuento = ObtenerDescuentoPorTemporada(temporada);
@@ -93,9 +84,7 @@ namespace HotelZormat.Negocio.Servicios
             return tarifaConDescuento * noches;
         }
 
-        // ── Crea una reserva completa: valida fechas, calcula noches ──
-        // y monto, y verifica que la habitación esté disponible antes
-        // de guardar. Devuelve el Id de la reserva creada.
+        // TODO: Método normal (de instancia). Usa 2 if para validar antes de continuar (guard clauses).
         public int CrearReserva(int numeroHabitacion, int huespedId, DateTime fechaCheckIn,
             DateTime fechaCheckOut, string temporada)
         {
@@ -129,19 +118,18 @@ namespace HotelZormat.Negocio.Servicios
 
             int nuevoId = reservaDal.Insertar(reserva);
 
-            // La habitación pasa a Reservada mientras se confirma
             habitacionDal.ActualizarEstado(habitacion.Numero, EstadosHabitacion.Reservada);
 
             return nuevoId;
         }
 
-        // ── Lista las reservas próximas 7 días ────────────────────────
+        // TODO: Método normal (de instancia). Sin estructuras de control, solo delega al DAL.
         public List<Reserva> ObtenerProximas7Dias()
         {
             return reservaDal.ObtenerProximas7Dias();
         }
 
-        // ── Confirma una reserva Pendiente ────────────────────────────
+        // TODO: Método normal (de instancia). Usa 2 if para validar antes de continuar (guard clauses).
         public void ConfirmarReserva(int reservaId)
         {
             Reserva reserva = reservaDal.BuscarPorId(reservaId);
@@ -158,7 +146,7 @@ namespace HotelZormat.Negocio.Servicios
             reservaDal.CambiarEstado(reservaId, EstadosReserva.Confirmada);
         }
 
-        // ── Cancela una reserva y libera la habitación ────────────────
+        // TODO: Método normal (de instancia). Usa 2 if para validar antes de continuar (guard clauses).
         public void CancelarReserva(int reservaId)
         {
             Reserva reserva = reservaDal.BuscarPorId(reservaId);
@@ -174,22 +162,17 @@ namespace HotelZormat.Negocio.Servicios
 
             reservaDal.CambiarEstado(reservaId, EstadosReserva.Cancelada);
 
-            // Si la habitación estaba Reservada por esta reserva, vuelve a Disponible
             habitacionDal.ActualizarEstado(reserva.NumeroHabitacion, EstadosHabitacion.Disponible);
         }
 
-        /// <summary>
-        /// Genera las líneas de detalle de una factura, una por noche.
-        /// Devuelve una lista de strings con el formato "Noche N: RD$ tarifa".
-        /// Reto 03 · usa for
-        /// /// </summary>
+        // TODO: Método normal (de instancia). Usa if (validación) + for (bucle contador de 1 a noches). Posible código sin usar, verificar.
         public List<string> GenerarLineasFactura(int noches, decimal tarifaPorNoche)
         {
             var lineas = new List<string>();
 
             if (noches <= 0)
             {
-                return lineas;       // devuelve lista vacía
+                return lineas;
             }
 
             for (int i = 1; i <= noches; i++)
@@ -200,11 +183,8 @@ namespace HotelZormat.Negocio.Servicios
 
             return lineas;
         }
-        /// <summary>
-        /// Encuentra la primera habitación disponible con capacidad mínima.
-        /// Devuelve null si no hay ninguna que cumpla.
-        /// Reto 04 · usa foreach + if + break
-        /// /// </summary>
+
+        // TODO: Método normal (de instancia). Usa if (validación) + foreach + if interno + break. Posible código sin usar, verificar.
         public Habitacion BuscarPrimeraDisponible(
             List<Habitacion> habitaciones,
             int capacidadMinima)
@@ -221,7 +201,7 @@ namespace HotelZormat.Negocio.Servicios
                 if (hab.EstaDisponible() && hab.Capacidad >= capacidadMinima)
                 {
                     encontrada = hab;
-                    break;             // ya encontramos una, no seguimos buscando
+                    break;
                 }
             }
 
