@@ -38,6 +38,22 @@ namespace HotelZormat
             LimpiarFormulario();
         }
 
+        private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Si es Cédula, no deja escribir más de 11 caracteres.
+            // Si es Pasaporte (o no ha seleccionado nada todavía), lo deja más libre,
+            // porque el formato de pasaporte varía según el país.
+            if (cboTipoDocumento.SelectedItem != null
+                && cboTipoDocumento.SelectedItem.ToString() == TiposDocumento.Cedula)
+            {
+                txtNumeroDocumento.MaxLength = 11;
+            }
+            else
+            {
+                txtNumeroDocumento.MaxLength = 20;
+            }
+        }
+
         private void CargarLista(string textoBusqueda)
         {
             try

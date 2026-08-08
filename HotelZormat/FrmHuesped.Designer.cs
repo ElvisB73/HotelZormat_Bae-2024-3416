@@ -40,9 +40,9 @@
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.lstHuespedes = new System.Windows.Forms.ListView();
             this.SuspendLayout();
-            //
+            // 
             // cboTipoDocumento
-            //
+            // 
             this.cboTipoDocumento.BackColor = System.Drawing.Color.Transparent;
             this.cboTipoDocumento.BorderRadius = 10;
             this.cboTipoDocumento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -57,9 +57,10 @@
             this.cboTipoDocumento.Name = "cboTipoDocumento";
             this.cboTipoDocumento.Size = new System.Drawing.Size(470, 36);
             this.cboTipoDocumento.TabIndex = 0;
-            //
+            this.cboTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cboTipoDocumento_SelectedIndexChanged);
+            // 
             // txtNumeroDocumento
-            //
+            // 
             this.txtNumeroDocumento.BorderRadius = 10;
             this.txtNumeroDocumento.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNumeroDocumento.DefaultText = "";
@@ -77,9 +78,9 @@
             this.txtNumeroDocumento.SelectedText = "";
             this.txtNumeroDocumento.Size = new System.Drawing.Size(472, 55);
             this.txtNumeroDocumento.TabIndex = 1;
-            //
+            // 
             // txtApellido
-            //
+            // 
             this.txtApellido.BorderRadius = 10;
             this.txtApellido.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtApellido.DefaultText = "";
@@ -97,9 +98,9 @@
             this.txtApellido.SelectedText = "";
             this.txtApellido.Size = new System.Drawing.Size(222, 55);
             this.txtApellido.TabIndex = 2;
-            //
+            // 
             // txtNacionalidad
-            //
+            // 
             this.txtNacionalidad.BorderRadius = 10;
             this.txtNacionalidad.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNacionalidad.DefaultText = "";
@@ -117,9 +118,9 @@
             this.txtNacionalidad.SelectedText = "";
             this.txtNacionalidad.Size = new System.Drawing.Size(472, 55);
             this.txtNacionalidad.TabIndex = 3;
-            //
+            // 
             // txtEmail
-            //
+            // 
             this.txtEmail.BorderRadius = 10;
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.DefaultText = "";
@@ -137,9 +138,9 @@
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(222, 55);
             this.txtEmail.TabIndex = 4;
-            //
+            // 
             // txtTelefono
-            //
+            // 
             this.txtTelefono.BorderRadius = 10;
             this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTelefono.DefaultText = "";
@@ -157,9 +158,9 @@
             this.txtTelefono.SelectedText = "";
             this.txtTelefono.Size = new System.Drawing.Size(222, 55);
             this.txtTelefono.TabIndex = 5;
-            //
+            // 
             // txtNombre
-            //
+            // 
             this.txtNombre.BorderRadius = 10;
             this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNombre.DefaultText = "";
@@ -177,9 +178,9 @@
             this.txtNombre.SelectedText = "";
             this.txtNombre.Size = new System.Drawing.Size(222, 55);
             this.txtNombre.TabIndex = 6;
-            //
+            // 
             // btnNuevo
-            //
+            // 
             this.btnNuevo.BorderRadius = 10;
             this.btnNuevo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnNuevo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -196,9 +197,9 @@
             this.btnNuevo.TabIndex = 7;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            //
+            // 
             // btnGuardar
-            //
+            // 
             this.btnGuardar.BorderRadius = 10;
             this.btnGuardar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGuardar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -215,9 +216,9 @@
             this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            //
+            // 
             // btnEliminar
-            //
+            // 
             this.btnEliminar.BorderRadius = 10;
             this.btnEliminar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEliminar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -234,9 +235,9 @@
             this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            //
+            // 
             // btnVerHistorial
-            //
+            // 
             this.btnVerHistorial.BorderRadius = 10;
             this.btnVerHistorial.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnVerHistorial.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -253,105 +254,105 @@
             this.btnVerHistorial.TabIndex = 10;
             this.btnVerHistorial.Text = "Ver Historial";
             this.btnVerHistorial.Click += new System.EventHandler(this.btnVerHistorial_Click);
-            //
+            // 
             // lblTitulo
-            //
+            // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(168)))), ((int)(((byte)(220)))));
             this.lblTitulo.Location = new System.Drawing.Point(28, 14);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(256, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(307, 45);
             this.lblTitulo.TabIndex = 11;
             this.lblTitulo.Text = "Datos Del Huesped";
-            //
+            // 
             // lblTipoDeDocumento
-            //
+            // 
             this.lblTipoDeDocumento.AutoSize = true;
             this.lblTipoDeDocumento.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblTipoDeDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
             this.lblTipoDeDocumento.Location = new System.Drawing.Point(28, 74);
             this.lblTipoDeDocumento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoDeDocumento.Name = "lblTipoDeDocumento";
-            this.lblTipoDeDocumento.Size = new System.Drawing.Size(148, 20);
+            this.lblTipoDeDocumento.Size = new System.Drawing.Size(171, 25);
             this.lblTipoDeDocumento.TabIndex = 12;
             this.lblTipoDeDocumento.Text = "Tipo de Documento";
-            //
+            // 
             // lblNumeroDeDocumento
-            //
+            // 
             this.lblNumeroDeDocumento.AutoSize = true;
             this.lblNumeroDeDocumento.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblNumeroDeDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
             this.lblNumeroDeDocumento.Location = new System.Drawing.Point(28, 163);
             this.lblNumeroDeDocumento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumeroDeDocumento.Name = "lblNumeroDeDocumento";
-            this.lblNumeroDeDocumento.Size = new System.Drawing.Size(177, 20);
+            this.lblNumeroDeDocumento.Size = new System.Drawing.Size(203, 25);
             this.lblNumeroDeDocumento.TabIndex = 13;
             this.lblNumeroDeDocumento.Text = "Numero De Documento";
-            //
+            // 
             // lblNombre
-            //
+            // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
             this.lblNombre.Location = new System.Drawing.Point(28, 252);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(65, 20);
+            this.lblNombre.Size = new System.Drawing.Size(78, 25);
             this.lblNombre.TabIndex = 14;
             this.lblNombre.Text = "Nombre";
-            //
+            // 
             // lblApellido
-            //
+            // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
             this.lblApellido.Location = new System.Drawing.Point(279, 248);
             this.lblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(65, 20);
+            this.lblApellido.Size = new System.Drawing.Size(78, 25);
             this.lblApellido.TabIndex = 15;
             this.lblApellido.Text = "Apellido";
-            //
+            // 
             // lblNacionalidad
-            //
+            // 
             this.lblNacionalidad.AutoSize = true;
             this.lblNacionalidad.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblNacionalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
             this.lblNacionalidad.Location = new System.Drawing.Point(28, 348);
             this.lblNacionalidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNacionalidad.Name = "lblNacionalidad";
-            this.lblNacionalidad.Size = new System.Drawing.Size(100, 20);
+            this.lblNacionalidad.Size = new System.Drawing.Size(115, 25);
             this.lblNacionalidad.TabIndex = 16;
             this.lblNacionalidad.Text = "Nacionalidad";
-            //
+            // 
             // lblTelefono
-            //
+            // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
             this.lblTelefono.Location = new System.Drawing.Point(28, 451);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(71, 20);
+            this.lblTelefono.Size = new System.Drawing.Size(79, 25);
             this.lblTelefono.TabIndex = 17;
             this.lblTelefono.Text = "Telefono";
-            //
+            // 
             // lblEmail
-            //
+            // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(122)))), ((int)(((byte)(137)))));
             this.lblEmail.Location = new System.Drawing.Point(393, 451);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(48, 20);
+            this.lblEmail.Size = new System.Drawing.Size(54, 25);
             this.lblEmail.TabIndex = 18;
             this.lblEmail.Text = "Email";
-            //
+            // 
             // txtBuscar
-            //
+            // 
             this.txtBuscar.BorderRadius = 10;
             this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBuscar.DefaultText = "";
@@ -369,9 +370,9 @@
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.Size = new System.Drawing.Size(310, 55);
             this.txtBuscar.TabIndex = 19;
-            //
+            // 
             // btnBuscar
-            //
+            // 
             this.btnBuscar.BorderRadius = 10;
             this.btnBuscar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnBuscar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -388,9 +389,9 @@
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            //
+            // 
             // lstHuespedes
-            //
+            // 
             this.lstHuespedes.BackColor = System.Drawing.Color.White;
             this.lstHuespedes.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lstHuespedes.FullRowSelect = true;
@@ -404,9 +405,9 @@
             this.lstHuespedes.UseCompatibleStateImageBehavior = false;
             this.lstHuespedes.View = System.Windows.Forms.View.Details;
             this.lstHuespedes.SelectedIndexChanged += new System.EventHandler(this.lstHuespedes_SelectedIndexChanged);
-            //
+            // 
             // FrmHuesped
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
