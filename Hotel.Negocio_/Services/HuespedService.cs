@@ -113,7 +113,9 @@ namespace HotelZormat.Negocio.Servicios
             return huespedDal.BuscarPorId(id);
         }
 
-        // TODO: Método normal (de instancia). Usa 2 if + 1 operador ternario (condición ? valorSiVerdadero : valorSiFalso).
+        // TODO: Método normal (de instancia). Usa 2 if (guard clauses).
+        // Primero intenta un match exacto por documento (sirve para cédula O pasaporte,
+        // sin importar el formato), y si no encuentra nada, busca por nombre/apellido.
         public List<Huesped> Buscar(string texto)
         {
             if (string.IsNullOrWhiteSpace(texto))
@@ -121,15 +123,15 @@ namespace HotelZormat.Negocio.Servicios
                 return ObtenerTodos();
             }
 
-            if (ValidarCedula(texto))
+            string textoLimpio = texto.Trim();
+
+            Huesped encontradoPorDocumento = huespedDal.BuscarPorDocumento(textoLimpio);
+            if (encontradoPorDocumento != null)
             {
-                Huesped encontrado = huespedDal.BuscarPorDocumento(texto);
-                return encontrado != null
-                    ? new List<Huesped> { encontrado }
-                    : new List<Huesped>();
+                return new List<Huesped> { encontradoPorDocumento };
             }
 
-            return huespedDal.BuscarPorNombre(texto);
+            return huespedDal.BuscarPorNombre(textoLimpio);
         }
 
         // TODO: Método normal (de instancia). Sin estructuras de control, solo delega al DAL.
