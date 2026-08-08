@@ -32,6 +32,7 @@ namespace HotelZormat
             lstOcupacion.Columns.Add("Tipo", 90);
             lstOcupacion.Columns.Add("Huésped", 140);
             lstOcupacion.Columns.Add("Desde", 90);
+            lstOcupacion.Columns.Add("Hasta (est.)", 90);
 
             dtpDesde.Value = DateTime.Today.AddDays(-7);
             dtpHasta.Value = DateTime.Today;
@@ -57,6 +58,7 @@ namespace HotelZormat
                     item.SubItems.Add(fila["Tipo"].ToString());
                     item.SubItems.Add(fila["Huesped"].ToString());
                     item.SubItems.Add(Convert.ToDateTime(fila["CheckIn"]).ToShortDateString());
+                    item.SubItems.Add(Convert.ToDateTime(fila["CheckOutEstimado"]).ToShortDateString());
                     lstOcupacion.Items.Add(item);
                 }
 

@@ -19,10 +19,11 @@ namespace Hotel.Negocio_.DaL
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "SELECT H.NUMERO, H.PISO, H.TIPO, HU.NOMBRE, HU.APELLIDO, " +
-                                "E.FECHACHECKINREAL " +
+                                "E.FECHACHECKINREAL, R.FECHACHECKOUT " +
                                 "FROM HABITACIONES H " +
                                 "INNER JOIN ESTADIAS E ON H.HABITACIONID = E.HABITACIONID AND E.ESTADO = 'Activa' " +
                                 "INNER JOIN HUESPEDES HU ON E.HUESPEDID = HU.HUESPEDID " +
+                                "INNER JOIN RESERVAS R ON E.RESERVAID = R.RESERVAID " +
                                 "WHERE H.ESTADO = 'Ocupada' " +
                                 "ORDER BY H.NUMERO";
 
@@ -38,6 +39,7 @@ namespace Hotel.Negocio_.DaL
                     fila["Tipo"] = reader["TIPO"];
                     fila["Huesped"] = reader["NOMBRE"].ToString() + " " + reader["APELLIDO"].ToString();
                     fila["CheckIn"] = reader["FECHACHECKINREAL"];
+                    fila["CheckOutEstimado"] = reader["FECHACHECKOUT"];
                     lista.Add(fila);
                 }
             }

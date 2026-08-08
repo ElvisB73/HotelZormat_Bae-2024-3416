@@ -22,7 +22,7 @@ namespace HotelZormat
 
         private void FrmHuesped_Load(object sender, EventArgs e)
         {
-
+           
             lstHuespedes.View = View.Details;
             lstHuespedes.Columns.Clear();
             lstHuespedes.Columns.Add("Documento", 130);
@@ -219,6 +219,14 @@ namespace HotelZormat
             catch (FormatException ex)
             {
                 MessageBox.Show(ex.Message, "No se puede eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                // Error 547 de SQL Server = violación de llave foránea.
+                // Significa que este huésped tiene reservas o estadías asociadas.
+                MessageBox.Show(
+                    "No se puede eliminar este huésped porque tiene reservas o estadías registradas a su nombre.",
+                    "No se puede eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (SqlException)
             {
