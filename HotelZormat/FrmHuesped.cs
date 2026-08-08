@@ -13,8 +13,6 @@ namespace HotelZormat
     {
         private HuespedService huespedService = new HuespedService();
 
-        // Guarda el Id del huésped seleccionado, para saber si
-        // btnGuardar debe Crear o Actualizar.
         private int? idSeleccionado = null;
 
         public FrmHuesped()
@@ -24,9 +22,7 @@ namespace HotelZormat
 
         private void FrmHuesped_Load(object sender, EventArgs e)
         {
-           // this.BackColor = ColoresApp.FondoClaro;
 
-            // Columnas armadas por código, igual que en Habitaciones
             lstHuespedes.View = View.Details;
             lstHuespedes.Columns.Clear();
             lstHuespedes.Columns.Add("Documento", 130);
@@ -42,7 +38,6 @@ namespace HotelZormat
             LimpiarFormulario();
         }
 
-        // ── Carga la lista, con o sin texto de búsqueda ───────────────
         private void CargarLista(string textoBusqueda)
         {
             try
@@ -59,7 +54,7 @@ namespace HotelZormat
                     fila.SubItems.Add(huesped.Nombre);
                     fila.SubItems.Add(huesped.Apellido);
                     fila.SubItems.Add(huesped.Telefono);
-                    fila.Tag = huesped.Id; // guardamos el Id en el Tag para recuperarlo al hacer clic
+                    fila.Tag = huesped.Id;
                     lstHuespedes.Items.Add(fila);
                 }
             }
@@ -79,7 +74,6 @@ namespace HotelZormat
             CargarLista(txtBuscar.Text.Trim());
         }
 
-        // ── Al hacer clic en una fila, se cargan sus datos ────────────
         private void lstHuespedes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstHuespedes.SelectedItems.Count == 0)
@@ -87,22 +81,34 @@ namespace HotelZormat
                 return;
             }
 
-            int id = (int)lstHuespedes.SelectedItems[0].Tag;
-            Huesped huesped = huespedService.ObtenerPorId(id);
-
-            if (huesped == null)
+            try
             {
-                return;
-            }
+                int id = (int)lstHuespedes.SelectedItems[0].Tag;
+                Huesped huesped = huespedService.ObtenerPorId(id);
 
-            idSeleccionado = huesped.Id;
-            cboTipoDocumento.SelectedItem = huesped.TipoDocumento;
-            txtNumeroDocumento.Text = huesped.NumeroDocumento;
-            txtNombre.Text = huesped.Nombre;
-            txtApellido.Text = huesped.Apellido;
-            txtNacionalidad.Text = huesped.Nacionalidad;
-            txtTelefono.Text = huesped.Telefono;
-            txtEmail.Text = huesped.Email;
+                if (huesped == null)
+                {
+                    return;
+                }
+
+                idSeleccionado = huesped.Id;
+                cboTipoDocumento.SelectedItem = huesped.TipoDocumento;
+                txtNumeroDocumento.Text = huesped.NumeroDocumento;
+                txtNombre.Text = huesped.Nombre;
+                txtApellido.Text = huesped.Apellido;
+                txtNacionalidad.Text = huesped.Nacionalidad;
+                txtTelefono.Text = huesped.Telefono;
+                txtEmail.Text = huesped.Email;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("No se pudo conectar con la base de datos.", "Error de conexión",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -122,7 +128,6 @@ namespace HotelZormat
             txtEmail.Text = "";
         }
 
-        // ── Crea o actualiza, según si hay un huésped seleccionado ────
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -210,7 +215,6 @@ namespace HotelZormat
             }
         }
 
-        // ── Muestra el historial de estadías del huésped seleccionado ──
         private void btnVerHistorial_Click(object sender, EventArgs e)
         {
             if (!idSeleccionado.HasValue)

@@ -1,9 +1,9 @@
 ﻿// Cedula: 402444623662
-// Cedula: 402444623662
 using Hotel.Negocio_.Modelo;
 using HotelZormat.Negocio.Servicios;
 using System;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace HotelZormat
@@ -23,6 +23,16 @@ namespace HotelZormat
 
         private void FrmHabitacionGestiion_Load(object sender, EventArgs e)
         {
+          
+
+            // Se arman las columnas por código, para no depender de lo que
+            // haya quedado configurado (o mal configurado) en el diseñador.
+            lstHabitaciones.View = View.Details;
+            lstHabitaciones.Columns.Clear();
+            lstHabitaciones.Columns.Add("No.", 60);
+            lstHabitaciones.Columns.Add("Tipo", 120);
+            lstHabitaciones.Columns.Add("Piso", 60);
+            lstHabitaciones.Columns.Add("Estado", 120);
 
             cboTipo.Items.Clear();
             cboTipo.Items.Add(TiposHabitacion.Sencilla);
@@ -68,6 +78,12 @@ namespace HotelZormat
                     fila.SubItems.Add(habitacion.Tipo);
                     fila.SubItems.Add(habitacion.Piso.ToString());
                     fila.SubItems.Add(habitacion.Estado);
+
+                    // Pinta la fila completa según el estado de la habitación
+                   
+                    fila.ForeColor = Color.White;
+                    fila.UseItemStyleForSubItems = true;
+
                     lstHabitaciones.Items.Add(fila);
                 }
             }
@@ -107,24 +123,36 @@ namespace HotelZormat
                 return;
             }
 
-            ListViewItem fila = lstHabitaciones.SelectedItems[0];
-
-            int numero = int.Parse(fila.SubItems[0].Text);
-            Habitacion habitacion = habitacionService.BuscarPorNumero(numero);
-
-            if (habitacion == null)
+            try
             {
-                return;
-            }
+                ListViewItem fila = lstHabitaciones.SelectedItems[0];
 
-            numeroSeleccionado = habitacion.Numero;
-            txtNumero.Text = habitacion.Numero.ToString();
-            txtNumero.Enabled = false; // no se permite cambiar el número de una habitación existente
-            cboTipo.SelectedItem = habitacion.Tipo;
-            txtPiso.Text = habitacion.Piso.ToString();
-            txtCapacidad.Text = habitacion.Capacidad.ToString();
-            txtTarifa.Text = habitacion.Tarifa.ToString();
-            cboEstado.SelectedItem = habitacion.Estado;
+                int numero = int.Parse(fila.SubItems[0].Text);
+                Habitacion habitacion = habitacionService.BuscarPorNumero(numero);
+
+                if (habitacion == null)
+                {
+                    return;
+                }
+
+                numeroSeleccionado = habitacion.Numero;
+                txtNumero.Text = habitacion.Numero.ToString();
+                txtNumero.Enabled = false; // no se permite cambiar el número de una habitación existente
+                cboTipo.SelectedItem = habitacion.Tipo;
+                txtPiso.Text = habitacion.Piso.ToString();
+                txtCapacidad.Text = habitacion.Capacidad.ToString();
+                txtTarifa.Text = habitacion.Tarifa.ToString();
+                cboEstado.SelectedItem = habitacion.Estado;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("No se pudo conectar con la base de datos.", "Error de conexión",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -235,7 +263,5 @@ namespace HotelZormat
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 }
